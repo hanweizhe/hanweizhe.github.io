@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-11T06:33:27.084Z</updated>
+  <updated>2017-11-12T07:44:39.007Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java多线程编程核心技术----java多线程技能</title>
+    <link href="http://yoursite.com/2017/11/12/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/"/>
+    <id>http://yoursite.com/2017/11/12/java多线程编程核心技术-java多线程技能/</id>
+    <published>2017-11-12T05:28:31.000Z</published>
+    <updated>2017-11-12T07:44:39.007Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p><strong>进程</strong>：通过查看“windows任务管理器”中的列表，完全可以将运行在内存中的exe文件理解成进程。</p><p>进程是受操作系统管理的基本运行单元。</p><p><strong>线程</strong>：线程可以理解成是在进程中独立运行的子任务。比如，QQ.exe运行时就有很多的子任务在同时运行。</p><p>那么，使用多线程有什么优点呢？</p><p>单线程运行环境：任务1和任务2是两个相互独立，互不关心的任务。任务1用时10秒，任务2用时1秒，任务2必须等任务1执行完10秒之后才能执行。</p><p> 特点：排队执行，即同步，CPU利用率大幅降低。</p><p>多线程运行环境：任务1和任务2是两个相互独立，互不关心的任务。任务1用时10秒，任务2用时1秒，CPU完全可以在任务1和任务2之间来回切换，使任务2不必等待10秒再运行。</p><p> 特点：在使用异步，系统的运行效率得到大幅度提升。</p><p>多线程是异步的，所以千万不要把Eclipse里代码的顺序当成线程的执行顺序，线程被调用的时机是随机的。</p><p>一个进程在运行时至少有一个线程在运行，比如在Java中，调用<code>public static void main()</code>方法就会创建一个线程，名字叫main（这个main和main方法名字没有任何关系），而且它是由JVM创建的。</p><h4 id="使用多线程"><a href="#使用多线程" class="headerlink" title="使用多线程"></a>使用多线程</h4><p>实现多线程编程有两种主要方式：一种是继承Thread类，另一种是实现Runnable接口。都是重写<code>run</code>方法。（java支持单继承）</p><p> Thread.java类也实现啦Runnable接口</p><p>Thread.java类中的start()方法通知“线程规划池”此线程已经准备就绪，等待调用线程对象的run()方法。这个过程其实就是让系统安排一个时间来调用Thread中的run()方法，也就是使线程得到运行，启动线程，具有异步执行的效果。</p><p>thread.run()方法而是同步，此线程对象并不交给“线程规划器”来进行处理，而是由main主线程来调用run()方法，也就是必须等待run()方法中的代码执行完之后才可以执行后面代码。</p><p>执行start()方法的顺序并不代表线程启动的顺序。</p><p>非线程安全：多个线程对同一个对象中的同一个实例变量进行操作时会出现值被更改，值不同步的情况，进而影响程序的执行流程。（使用synchronized关键字加锁）</p><p>留意i++与System.out.println()的异常：使用<code>System.out.println(&quot;i=&quot;+(i++))</code><br>虽然println()方法内部是同步的，但i++的操作却是在进入println()之前发生的，所以有发生非线程安全问题的概率。</p><p>currentThread()方法：返回代码段正在被哪个线程调用的信息。</p><p>isAlive()方法：判断当前线程是否处于活动状态。</p><p>sleep()方法：在指定的毫秒数内让当前“正在执行的线程”休眠（暂停执行）。这个“正在执行的线程”是指<code>this.currentThread()</code>返回的线程。</p><p>getId()方法：获取线程的唯一标识。</p><p>yield()方法：放弃当前的CPU资源，将它让给其他任务去占用CPU执行时间。但放弃的时间不确定，有可能刚刚放弃，马上又获得CPU时间片。</p><h4 id="停止线程"><a href="#停止线程" class="headerlink" title="停止线程"></a>停止线程</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">线程正常退出，即run()方法完成后线程终止。</span><br><span class="line">使用stop()方法强行终止线程。（不推荐使用）</span><br><span class="line">使用interrupt方法中断线程。（还需要加入一个判断才可以完成线程----抛出异常，break，return）</span><br></pre></td></tr></table></figure><p>判断线程是否是停止状态：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.interrupted():测试当前线程是否已经是中断状态，执行后具有将状标志置清除为false的功能。当前线程是指运行this.interrupted()方法的线程。</span><br><span class="line"></span><br><span class="line">this.isInterrupted():测试线程Thread对象是否已经是中断状态，但不清除状态标志。</span><br></pre></td></tr></table></figure><h4 id="暂停线程"><a href="#暂停线程" class="headerlink" title="暂停线程"></a>暂停线程</h4><p>使用<code>suspend()</code>方法暂停线程，使用<code>resume()</code>方法恢复线程的执行。</p><p>缺点：独占，不同步</p><h4 id="线程优先级"><a href="#线程优先级" class="headerlink" title="线程优先级"></a>线程优先级</h4><p>线程可以划分优先级，优先级较高的线程得到的CPU资源较多，也就是CPU优先执行优先级较高的线程对象中的任务。</p><p>设置线程优先级有助于帮“线程规划器”确定在下一次选择哪个线程来优先执行。</p><p>线程优先级分为<code>1~10</code>这10个等级，如果小于1或大于10，则JDK抛出异常<code>throw new IllegalArgumentException()</code>,</p><p>JDK使用3个常量来预置定义优先级的值：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public final static int MIN_PRIORITY = 1;</span><br><span class="line">public final static int NORM_PRIORITY = 5;</span><br><span class="line">public final static int MAX_PRIORITY = 10;</span><br></pre></td></tr></table></figure><p> 线程优先级具有继承性：A线程启动B线程，则B线程的优先级与A一样。</p><p> 高优先级的线程总是<code>大部分</code>先执行完，但不代表高优先线程全部先执行完。</p><p> 线程的优先级与代码的执行顺序无关。</p><h4 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h4><p> 在java线程中有两种线程，一种是用户线程，另一种是守护线程。</p><p> 任何一个守护线程都是整个JVM中所有非守护线程的“保姆”，当进程中不存在非守护线程了，则守护线程自动销毁。</p><p> 典型的守护线程是：GC（垃圾回收器）</p><p> <code>thread.setDaemon(true)</code>：设置当前线程为守护线程。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;进程&lt;/strong&gt;：通过查看“windows任务管理器”中的列表，完全可以将运行在内存中的exe文件理解成进程。&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="java多线程编程核心技术| java多线程技能" scheme="http://yoursite.com/categories/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/"/>
+    
+    
+      <category term="java多线程编程核心技术" scheme="http://yoursite.com/tags/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客源文件备份</title>
