@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="我的第一个博客">
 <meta property="og:description" content="前言使用Hexo编写博客还是比较Nice的，但是有一个问题就是Hexo博客的源文件是放在本地的，如果换一台电脑更新博客或者源文件不小心丢失啦，那就麻烦啦。未雨绸缪，现在给出这一问题的解决方案。 备份方案想到的办法：  将博客源文件拷贝到U盘里—但是这样做，无法同步。  使用网盘的话，据说.git文件不能上传同步—而且我对国内的网盘也不放心。   综合起来，我觉得比较流行的方法就是：  将博客源文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-11T06:33:27.084Z">
+<meta property="og:updated_time" content="2017-12-15T03:03:29.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客源文件备份">
 <meta name="twitter:description" content="前言使用Hexo编写博客还是比较Nice的，但是有一个问题就是Hexo博客的源文件是放在本地的，如果换一台电脑更新博客或者源文件不小心丢失啦，那就麻烦啦。未雨绸缪，现在给出这一问题的解决方案。 备份方案想到的办法：  将博客源文件拷贝到U盘里—但是这样做，无法同步。  使用网盘的话，据说.git文件不能上传同步—而且我对国内的网盘也不放心。   综合起来，我觉得比较流行的方法就是：  将博客源文件">
@@ -454,7 +454,7 @@
 </ul>
 <ul>
 <li><p>设置远程仓库地址，并更新，本地文件夹与远程仓库绑定：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  git remote add origin git@github.com:hanweizhe/hexohexo.git</span><br><span class="line">git pull orgin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:hanweizhe/hexohexo.git</span><br><span class="line"> git pull orgin master</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -475,7 +475,7 @@
 <p>在本地编写完博客时，顺序执行以下命令，即可完成Hexo博客源文件的同步更新，保持Github上的Hexo源码为最新的版本。</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"更新Hexo源文件"</span></span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 <p>至此，Hexo源代码文件就完成了同步与更新。</p>
-<p>对于博主这种懒人，每次更新博文都需要输入两三行重复的git命令真是一件麻烦事，说不定哪天就忘记push到Github上啦。有没有更省事的办法？？完成自动备份 ？？ ：happy：</p>
+<p>对于博主这种懒人，每次更新博文都需要输入两三行重复的git命令真是一件麻烦事，说不定哪天就忘记push到Github上啦。有没有更省事的办法？？完成自动备份 ？？</p>
 <h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>利用<code>NodeJs</code>的事件监听机制实现监听Hexo的<code>deployAfter</code>事件，待博客部署完成之后自动运行Git备份命令，以达到自动备份的目的。</p>
 <h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><h5 id="将hexohexo目录加入Git仓库（见前面）。"><a href="#将hexohexo目录加入Git仓库（见前面）。" class="headerlink" title="将hexohexo目录加入Git仓库（见前面）。"></a>将hexohexo目录加入Git仓库（见前面）。</h5><h5 id="安装shelljs模块。"><a href="#安装shelljs模块。" class="headerlink" title="安装shelljs模块。"></a>安装<code>shelljs</code>模块。</h5><p>要实现这个自动备份功能，需要依赖NodeJs的一个<code>shelljs</code>模块，该模块重新包装啦<code>child_process</code><br> ,调用系统命令更加方便。该模块需要安装后使用。</p>
 <p>键入以下命令，完成<code>shelljs</code>模块的安装：</p>
