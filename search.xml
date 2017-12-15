@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[hexo博客后端管里工具---hexo-admin]]></title>
-    <url>%2F2017%2F12%2F15%2Fhexo%E5%8D%9A%E5%AE%A2%E5%90%8E%E7%AB%AF%E7%AE%A1%E9%87%8C%E5%B7%A5%E5%85%B7-hexo-admin%2F</url>
-    <content type="text"><![CDATA[前言最近又重新折腾和整理啦一下自己的博客，发现每次写博客都会进入修改-&gt;启动hexo server-&gt;修改的回圈，进入一个非常麻烦的过程，有没有好的解决方案呢？？？困惑？肯定有呀！！也就是我接下来要介绍的hexo-admin 安装插件hexo-admin 这款插件的安装也非常简单，通过简单的npm就可以一键安装啦。进入搭建好的博客目录，执行安装指令，启动hexo的server，在本地就可以进行文章的管理与发布啦。 1234cd hexohexonpm install -save hexo-adminhexo server -dopen http://localhost:4000/admin/ 功能其实我是边写这篇博客，边了解这个插件功能的，发现很多优点： 即时保存在网页上直接写博客，不用进行额外的保存。这款插件会每隔几秒钟就会自动保存一次，再也不怕忘记保存啦。但是习惯了常常默认按ctrl+s来保存，变成了保存网页，哈哈。我们可以发现目录架构中增加了两个文件夹，hexo-admin在原来hexo的基础上加入了draft和discarded来保存我们的草稿和删除的markdown。不用怕误删，也不用怕自己没写好的草稿，不小心就发布出去啦。 即时渲染会发现如果你是在修改当前页面的markdown文件，server上也会动态发生效果，就可以发现效果已经变啦。 总结2017年已经接近尾端，一个晴朗的白天，放下作业，整理一下自己的思绪，写写总结。无意中间发现这么一款管理博客的神器，也是蛮开心的！以后自己写东西也会方便很多！]]></content>
+    <title><![CDATA[hexo博客后端管理工具---hexo-admin]]></title>
+    <url>%2F2017%2F12%2F15%2Fhexo%E5%8D%9A%E5%AE%A2%E5%90%8E%E7%AB%AF%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-hexo-admin%2F</url>
+    <content type="text"><![CDATA[前言最近又重新折腾和整理啦一下自己的博客，发现每次写博客都会进入修改-&gt;启动hexo server-&gt;修改的回圈，这是一个非常麻烦的过程，有没有好的解决方案呢？？？困惑？肯定有呀！！也就是我接下来要介绍的hexo-admin 安装插件hexo-admin 这款插件的安装也非常简单，通过简单的npm就可以一键安装啦。进入搭建好的博客目录，执行安装指令，启动hexo的server，在本地就可以进行文章的管理与发布啦。 1234cd hexohexonpm install -save hexo-adminhexo server -dopen http://localhost:4000/admin/ 功能其实我是边写这篇博客，边了解这个插件功能的，发现很多优点： 即时保存在网页上直接写博客，不用进行额外的保存。这款插件会每隔几秒钟就会自动保存一次，再也不怕忘记保存啦。但是习惯了常常默认按ctrl+s来保存，变成了保存网页，哈哈。我们可以发现目录架构中增加了两个文件夹，hexo-admin在原来hexo的基础上加入了draft和discarded来保存我们的草稿和删除的markdown。不用怕误删，也不用怕自己没写好的草稿，不小心就发布出去啦。 即时渲染会发现如果你是在修改当前页面的markdown文件，server上也会动态发生效果，就可以发现效果已经变啦。 总结2017年已经接近尾端，一个晴朗的白天，放下作业，整理一下自己的思绪，写写总结。无意中间发现这么一款管理博客的神器，也是蛮开心的！以后自己写东西也会方便很多！]]></content>
       <categories>
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>教程| Hexo教程 | Hexo博客后端管里工具</tag>
+        <tag>教程| Hexo教程 | Hexo博客后端管理工具</tag>
       </tags>
   </entry>
   <entry>
