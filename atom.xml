@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-12T07:44:39.007Z</updated>
+  <updated>2017-12-15T05:03:50.870Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo博客后端管里工具---hexo-admin</title>
+    <link href="http://yoursite.com/2017/12/15/hexo%E5%8D%9A%E5%AE%A2%E5%90%8E%E7%AB%AF%E7%AE%A1%E9%87%8C%E5%B7%A5%E5%85%B7-hexo-admin/"/>
+    <id>http://yoursite.com/2017/12/15/hexo博客后端管里工具-hexo-admin/</id>
+    <published>2017-12-15T03:15:00.000Z</published>
+    <updated>2017-12-15T05:03:50.870Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>最近又重新折腾和整理啦一下自己的博客，发现每次写博客都会进入<code>修改-&gt;启动hexo server-&gt;修改</code>的回圈，进入一个非常麻烦的过程，有没有好的解决方案呢？？？困惑？肯定有呀！！也就是我接下来要介绍的<a href="https://jaredforsyth.com/hexo-admin/" target="_blank" rel="external">hexo-admin</a></p><p><img src="/image/hexo.jpg" alt="“hexo-admin”"> </p><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p>hexo-admin 这款插件的安装也非常简单，通过简单的npm就可以一键安装啦。进入搭建好的博客目录，执行安装指令，启动hexo的server，在本地就可以进行文章的管理与发布啦。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexohexo</span><br><span class="line">npm install -save hexo-admin</span><br><span class="line">hexo server -d</span><br><span class="line">open http://localhost:4000/admin/</span><br></pre></td></tr></table></figure><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><p>其实我是边写这篇博客，边了解这个插件功能的，发现很多优点：</p><ul><li><p><strong>即时保存</strong><br>在网页上直接写博客，不用进行额外的保存。这款插件会每隔几秒钟就会自动保存一次，再也不怕忘记保存啦。但是习惯了常常默认按ctrl+s来保存，变成了保存网页，哈哈。<br>我们可以发现目录架构中增加了两个文件夹，hexo-admin在原来hexo的基础上加入了draft和discarded来保存我们的草稿和删除的markdown。不用怕误删，也不用怕自己没写好的草稿，不小心就发布出去啦。</p></li><li><p><strong>即时渲染</strong><br>会发现如果你是在修改当前页面的markdown文件，server上也会动态发生效果，就可以发现效果已经变啦。</p></li></ul><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>2017年已经接近尾端，一个晴朗的白天，放下作业，整理一下自己的思绪，写写总结。无意中间发现这么一款管理博客的神器，也是蛮开心的！以后自己写东西也会方便很多！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;最近又重新折腾和整理啦一下自己的博客，发现每次写博客都会进入&lt;code&gt;修改-&amp;gt;启动hexo server-&amp;gt;修改&lt;/code&gt;
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+    
+      <category term="教程| Hexo教程 | Hexo博客后端管里工具" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B-Hexo%E6%95%99%E7%A8%8B-Hexo%E5%8D%9A%E5%AE%A2%E5%90%8E%E7%AB%AF%E7%AE%A1%E9%87%8C%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>java多线程编程核心技术----java多线程技能</title>
