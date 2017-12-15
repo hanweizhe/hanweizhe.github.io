@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="我的第一个博客">
 <meta property="og:description" content="前言使用Hexo编写博客还是比较Nice的，但是有一个问题就是Hexo博客的源文件是放在本地的，如果换一台电脑更新博客或者源文件不小心丢失啦，那就麻烦啦。未雨绸缪，现在给出这一问题的解决方案。 备份方案想到的办法：  将博客源文件拷贝到U盘里—但是这样做，无法同步。  使用网盘的话，据说.git文件不能上传同步—而且我对国内的网盘也不放心。   综合起来，我觉得比较流行的方法就是：  将博客源文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T03:07:32.865Z">
+<meta property="og:updated_time" content="2017-12-15T03:11:24.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客源文件备份">
 <meta name="twitter:description" content="前言使用Hexo编写博客还是比较Nice的，但是有一个问题就是Hexo博客的源文件是放在本地的，如果换一台电脑更新博客或者源文件不小心丢失啦，那就麻烦啦。未雨绸缪，现在给出这一问题的解决方案。 备份方案想到的办法：  将博客源文件拷贝到U盘里—但是这样做，无法同步。  使用网盘的话，据说.git文件不能上传同步—而且我对国内的网盘也不放心。   综合起来，我觉得比较流行的方法就是：  将博客源文件">
@@ -461,7 +461,7 @@
 <li><p>(<strong>非必须项</strong>) 修改<code>.gitignore</code>文件（如果没有就手动创建一个），在里面加入<code>.*.log</code>和<code>public/</code>以及<code>.deploy*/</code>。因为每次执行<code>hexo generate</code>命令时，上述目录都会被重写更新，因此忽略上述目录下的文件更新，加快push速度。</p>
 </li>
 <li><p>完成Hexo源码在本地的提交，执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">  git commit -m <span class="string">"添加Hexo源码文件作为备份"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"添加Hexo源码文件作为备份"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>将本地仓库文件推送到Github，执行以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
