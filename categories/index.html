@@ -151,6 +151,44 @@
 
 
 
+  $(document).ready(function () {
+	var SelectText = function(element) {
+		var doc = document
+			, text = element
+			, range, selection
+		;    
+		if (doc.body.createTextRange) {
+			range = document.body.createTextRange();
+			range.moveToElementText(text);
+			range.select();
+		} else if (window.getSelection) {
+			selection = window.getSelection();        
+			range = document.createRange();
+			range.selectNodeContents(text);
+			selection.removeAllRanges();
+			selection.addRange(range);
+		}
+	};
+	$(".code").each(function() {
+		var code = $(this).get(0);
+		var button_html = 
+			'<div style="position: fixed;'                                                               +
+						'right: 3%;'                                                                     +
+						'margin-top: 5px;'                                                               +
+						'font-family: consolas, Menlo, \'PingFang SC\', \'Microsoft YaHei\', monospace;' +
+						'font-size: 10px;'                                                               +
+						'cursor: pointer;'                                                               +
+						'color: #e31436;'                                                                +
+						'">'                                                                             +
+			'<span>全选</span>'                                                                          +
+			'</div>';
+		var button = $(button_html);
+		$(button).click(function() {
+			SelectText(code);
+		});
+		$(button).insertBefore(this);
+	});
+});
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -329,10 +367,10 @@
         
           <div class="category-all-page">
             <div class="category-all-title">
-                目前共计 2 个分类
+                目前共计 3 个分类
             </div>
             <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java多线程编程核心技术-java多线程技能/">java多线程编程核心技术| java多线程技能</a><span class="category-list-count">1</span></li></ul>
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java多线程编程核心技术-java多线程技能/">java多线程编程核心技术| java多线程技能</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">1</span></li></ul>
             </div>
           </div>
         
@@ -392,7 +430,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -403,7 +441,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -414,7 +452,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

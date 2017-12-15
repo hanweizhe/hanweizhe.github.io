@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="教程| 设计模式教程 | 设计模式--策略模式," />
 
 
 
@@ -85,16 +85,21 @@
 
 
 
-<meta name="description" content="累吗？？累就对啦，，舒服是留给死人的。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的第一个博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="策略模式定义1策略模式定义了算法族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。 图解 代码测试Duck：1234567891011121314151617181920212223public abstract class Duck    &amp;#123;        //为行为接口类型声明两个引用变量，所有鸭子子类都继承它们。        public IFly">
+<meta name="keywords" content="教程| 设计模式教程 | 设计模式--策略模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式--策略模式">
+<meta property="og:url" content="http://yoursite.com/2017/12/15/设计模式-策略模式/index.html">
 <meta property="og:site_name" content="我的第一个博客">
-<meta property="og:description" content="累吗？？累就对啦，，舒服是留给死人的。">
+<meta property="og:description" content="策略模式定义1策略模式定义了算法族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。 图解 代码测试Duck：1234567891011121314151617181920212223public abstract class Duck    &amp;#123;        //为行为接口类型声明两个引用变量，所有鸭子子类都继承它们。        public IFly">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/image/策略模式.png">
+<meta property="og:image" content="http://yoursite.com/image/运行结果1.png">
+<meta property="og:updated_time" content="2017-12-15T07:21:55.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一个博客">
-<meta name="twitter:description" content="累吗？？累就对啦，，舒服是留给死人的。">
+<meta name="twitter:title" content="设计模式--策略模式">
+<meta name="twitter:description" content="策略模式定义1策略模式定义了算法族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。 图解 代码测试Duck：1234567891011121314151617181920212223public abstract class Duck    &amp;#123;        //为行为接口类型声明两个引用变量，所有鸭子子类都继承它们。        public IFly">
+<meta name="twitter:image" content="http://yoursite.com/image/策略模式.png">
 
 
 
@@ -124,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/15/设计模式-策略模式/"/>
 
 
 
 
 
-  <title>我的第一个博客</title>
+  <title>设计模式--策略模式 | 我的第一个博客</title>
   
 
 
@@ -197,8 +202,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -345,9 +349,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -377,9 +381,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/15/设计模式-策略模式/" itemprop="url">设计模式--策略模式</a></h1>
+          <h1 class="post-title" itemprop="name headline">设计模式--策略模式</h1>
         
 
         <div class="post-meta">
@@ -427,6 +429,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/15/设计模式-策略模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/12/15/设计模式-策略模式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -462,20 +474,47 @@
       
 
       
-        
-          
-          策略模式定义1策略模式定义了算法族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。
-图解
-代码测试Duck：1234567891011121314151617181920212223public abstract class Duck    &#123;       
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/15/设计模式-策略模式/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">策略模式定义了算法族，分别封装起来，让它们之间可以相互替换，此模式让算法的变化独立于使用算法的客户。</span><br></pre></td></tr></table></figure>
+<h4 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h4><p><img src="/image/策略模式.png" alt="策略模式"></p>
+<h4 id="代码测试"><a href="#代码测试" class="headerlink" title="代码测试"></a>代码测试</h4><p>Duck：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Duck</span><br><span class="line">    &#123;</span><br><span class="line">        //为行为接口类型声明两个引用变量，所有鸭子子类都继承它们。</span><br><span class="line">        public IFlyBehavior flyBehavior;</span><br><span class="line">        //每只鸭子都引用实现QuackBehavior接口的对象。</span><br><span class="line">        public IQuackBehavior quackBehavior;</span><br><span class="line">        public <span class="function"><span class="title">Duck</span></span>() &#123; &#125;</span><br><span class="line">        public abstract void Display();</span><br><span class="line">        public void PerformFly()</span><br><span class="line">        &#123;</span><br><span class="line">            //委托给行为类</span><br><span class="line">            flyBehavior.Fly();</span><br><span class="line">        &#125;</span><br><span class="line">        public void PerformQuack()</span><br><span class="line">        &#123;</span><br><span class="line">            //鸭子将呱呱叫行为委托给quackBehavior引用的对象。</span><br><span class="line">            quackBehavior.Quack();</span><br><span class="line">        &#125;</span><br><span class="line">        public void Swim()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"会游泳....."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>IFlyBehavior:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface IFlyBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       //所有飞行行为必须实现的接口。</span><br><span class="line">       void Fly();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p> IQuackBehavior:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface IQuackBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       void Quack();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p> FlyWithWings:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class FlyWithWings : IFlyBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="comment">#region IFlyBehavior 成员</span></span><br><span class="line">       public void Fly()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"会飞......"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="comment">#endregion</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p> FlyNoWay:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class FlyNoWay : IFlyBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="comment">#region IFlyBehavior 成员</span></span><br><span class="line">       public void Fly()</span><br><span class="line">       &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"不会飞......"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">#endregion</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p> IFlyBehavior:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface IFlyBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       //所有飞行行为必须实现的接口。</span><br><span class="line">       void Fly();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p> MuteQuack:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class MuteQuack : IQuackBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="comment">#region IQuackBehavior 成员</span></span><br><span class="line">       public void Quack()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"不会叫"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="comment">#endregion</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p> Quack:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Quack : IQuackBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="comment">#region IQuackBehavior 成员</span></span><br><span class="line">       void IQuackBehavior.Quack()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"呱呱叫......"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="comment">#endregion</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p> IFlyBehavior:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface IFlyBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       //所有飞行行为必须实现的接口。</span><br><span class="line">       void Fly();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p> Squeak:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Squeak : IQuackBehavior</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="comment">#region IQuackBehavior 成员</span></span><br><span class="line">       public void Quack()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"吱吱叫......."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="comment">#endregion</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p> MallardDuck:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class MallardDuck : Duck</span><br><span class="line">   &#123;</span><br><span class="line">       public MallardDuck()</span><br><span class="line">        &#123;</span><br><span class="line">            //FlyWithWings作为IFlyBehavior类型</span><br><span class="line">            base.flyBehavior = new FlyWithWings();</span><br><span class="line">            //Quack类处理呱呱叫。</span><br><span class="line">            base.quackBehavior = new Quack();</span><br><span class="line">        &#125;</span><br><span class="line">       public override void Display()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"绿头鸭......"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>  WoodDuck:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class WoodDuck : Duck</span><br><span class="line">   &#123;</span><br><span class="line">       public WoodDuck()</span><br><span class="line">        &#123;</span><br><span class="line">            flyBehavior = new FlyNoWay();</span><br><span class="line">            quackBehavior = new MuteQuack();</span><br><span class="line">        &#125;</span><br><span class="line">       public override void Display()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"木头鸭子....."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>  Main:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Program</span><br><span class="line">   &#123;</span><br><span class="line">       static void Main(string[] args)</span><br><span class="line">       &#123;</span><br><span class="line">           Duck mallard = new MallardDuck();</span><br><span class="line">           mallard.Display();</span><br><span class="line">           //调用MallardDuck继承来的perform方法，进而将绿头鸭的行为委托给quack和fly的行为类来处理。</span><br><span class="line">           mallard.PerformFly();</span><br><span class="line">           mallard.PerformQuack();</span><br><span class="line">           mallard.Swim();</span><br><span class="line">           Duck wood = new WoodDuck();</span><br><span class="line">           wood.Display();</span><br><span class="line">           wood.PerformFly();</span><br><span class="line">           wood.PerformQuack();</span><br><span class="line">           wood.Swim();</span><br><span class="line">           Console.Read();</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p><img src="/image/运行结果1.png" alt="策略模式运行结果"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><strong>00基础</strong></p>
+<ul>
+<li>抽象</li>
+<li>继承</li>
+<li>多态</li>
+<li>封装</li>
+</ul>
+<p><strong>00原则</strong></p>
+<ul>
+<li>封装变化</li>
+<li>多用组合，少用继承。<br>使用组合建立系统具有很大的弹性，不仅可将算法族封装成类，更可以在运行时动态地改变行为。</li>
+<li>针对接口编程，不针对实现编程</li>
+</ul>
+<p><strong>优点</strong></p>
+<p>1、 策略模式提供了管理相关的算法族的办法。策略类的等级结构定义了一个算法或行为族。恰当使用继承可以把公共的代码转移到父类里面，从而避免重复的代码。</p>
+<p>2、 策略模式提供了可以替换继承关系的办法。继承可以处理多种算法或行为。如果不是用策略模式，那么使用算法或行为的环境类就可能会有一些子类，每一个子类提供一个不同的算法或行为。但是，这样一来算法或行为的使用者就和算法或行为本身混在一起。决定使用哪一种算法或采取哪一种行为的逻辑就和算法或行为的逻辑混合在一起，从而不可能再独立演化。继承使得动态改变算法或行为变得不可能。</p>
+<p>3、 使用策略模式可以避免使用多重条件转移语句。多重转移语句不易维护，它把采取哪一种算法或采取哪一种行为的逻辑与算法或行为的逻辑混合在一起，统统列在一个多重转移语句里面，比使用继承的办法还要原始和落后。</p>
+<p><strong>缺点</strong></p>
+<p>1、客户端必须知道所有的策略类，并自行决定使用哪一个策略类。换言之，策略模式只适用于客户端知道所有的算法或行为的情况。</p>
+<p>2、 策略模式造成很多的策略类，每个具体策略类都会产生一个新类。有时候可以通过把依赖于环境的状态保存到客户端里面，而将策略类设计成可共享的，这样策略类实例可以被不同客户端使用。换言之，可以使用享元模式来减少对象的数量。[不很清楚]</p>
+
       
     </div>
     
@@ -485,343 +524,70 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创造！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao-mid.png" alt="夏茂盛 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao-mid.png" alt="夏茂盛 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/15/hexo博客后端管理工具-hexo-admin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="夏茂盛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的第一个博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/15/hexo博客后端管理工具-hexo-admin/" itemprop="url">hexo博客后端管理工具---hexo-admin</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T11:15:00+08:00">
-                2017-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/教程-设计模式教程-设计模式-策略模式/" rel="tag"># 教程| 设计模式教程 | 设计模式--策略模式</a>
           
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/15/hexo博客后端管理工具-hexo-admin/" class="leancloud_visitors" data-flag-title="hexo博客后端管理工具---hexo-admin">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          前言最近又重新折腾和整理啦一下自己的博客，发现每次写博客都会进入修改-&gt;启动hexo server-&gt;修改的回圈，这是一个非常麻烦的过程，有没有好的解决方案呢？？？困惑？肯定有呀！！也就是我接下来要介绍的hexo-admin
- 
-安装插件hexo-admin 这款插件的安装也非常简单，通
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/15/hexo博客后端管理工具-hexo-admin/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/15/hexo博客后端管理工具-hexo-admin/" rel="next" title="hexo博客后端管理工具---hexo-admin">
+                <i class="fa fa-chevron-left"></i> hexo博客后端管理工具---hexo-admin
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/12/java多线程编程核心技术-java多线程技能/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="夏茂盛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的第一个博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/12/java多线程编程核心技术-java多线程技能/" itemprop="url">java多线程编程核心技术----java多线程技能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T13:28:31+08:00">
-                2017-11-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java多线程编程核心技术-java多线程技能/" itemprop="url" rel="index">
-                    <span itemprop="name">java多线程编程核心技术| java多线程技能</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/12/java多线程编程核心技术-java多线程技能/" class="leancloud_visitors" data-flag-title="java多线程编程核心技术----java多线程技能">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          概念进程：通过查看“windows任务管理器”中的列表，完全可以将运行在内存中的exe文件理解成进程。
-进程是受操作系统管理的基本运行单元。
-线程：线程可以理解成是在进程中独立运行的子任务。比如，QQ.exe运行时就有很多的子任务在同时运行。
-那么，使用多线程有什么优点呢？
-单线程运行环境：任务1和
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/12/java多线程编程核心技术-java多线程技能/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -831,480 +597,68 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/11/Hexo博客源文件备份/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="夏茂盛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的第一个博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/11/Hexo博客源文件备份/" itemprop="url">Hexo博客源文件备份</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-11T12:49:00+08:00">
-                2017-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/11/Hexo博客源文件备份/" class="leancloud_visitors" data-flag-title="Hexo博客源文件备份">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
+    <div class="post-spread">
       
         
-          
-          前言使用Hexo编写博客还是比较Nice的，但是有一个问题就是Hexo博客的源文件是放在本地的，如果换一台电脑更新博客或者源文件不小心丢失啦，那就麻烦啦。未雨绸缪，现在给出这一问题的解决方案。
-备份方案想到的办法：
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
 
-将博客源文件拷贝到U盘里—但是这样做，无法同步。
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
-使用网盘的话，据说.git文件
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/11/Hexo博客源文件备份/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/用hexo极速搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="夏茂盛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的第一个博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/10/用hexo极速搭建博客/" itemprop="url">用hexo极速搭建博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T21:04:00+08:00">
-                2017-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/10/用hexo极速搭建博客/" class="leancloud_visitors" data-flag-title="用hexo极速搭建博客">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          hexo是一个非常轻量且快速的博客生成框架，可以使用markdown便捷的生成文章。
-本文主要介绍windows下如何搭建hexo5.1.3+环境并发布至github。默认读者具有命令行使用经验和一定的web编程基础。
-hexo搭建完成后只需要三步就可以完成博文的更新。
-123hexo n  # 新
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/10/用hexo极速搭建博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
+          
+
+
+          
+
+  
+    
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/10/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="夏茂盛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的第一个博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/10/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T18:34:11+08:00">
-                2017-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/10/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/10/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
 
   
 
 
-          </div>
-          
-
-
-          
 
         </div>
         
@@ -1325,8 +679,17 @@ hexo搭建完成后只需要三步就可以完成博文的更新。
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1427,6 +790,22 @@ hexo搭建完成后只需要三步就可以完成博文的更新。
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式"><span class="nav-number">1.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图解"><span class="nav-number">1.2.</span> <span class="nav-text">图解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码测试"><span class="nav-number">1.3.</span> <span class="nav-text">代码测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结果"><span class="nav-number">1.4.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1574,6 +953,10 @@ hexo搭建完成后只需要三步就可以完成博文的更新。
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -1620,6 +1003,30 @@ hexo搭建完成后只需要三步就可以完成博文的更新。
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '',
+            repo: '',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '0fc3fd47bc7cbc996b7cd90962fdff08fe87df1d',
+            
+                client_id: '63277d457afc6923ff8f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
@@ -2070,26 +1477,6 @@ hexo搭建完成后只需要三步就可以完成博文的更新。
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
