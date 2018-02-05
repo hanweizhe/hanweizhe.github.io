@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="我的第一个博客">
 <meta property="og:description" content="前言2017年已经接近尾声，最近自己在慧与实习(原惠普)也没啥事，闲暇之余，想起自己已经好久没有写博客，决定把redis的博客稍微写一写，相当于做一份笔记，以后方便查阅。 redis是啥呢redis的官方站点 Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cac">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-05T07:14:35.544Z">
+<meta property="og:updated_time" content="2018-02-05T07:32:49.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis的特点及安装(第一部分)">
 <meta name="twitter:description" content="前言2017年已经接近尾声，最近自己在慧与实习(原惠普)也没啥事，闲暇之余，想起自己已经好久没有写博客，决定把redis的博客稍微写一写，相当于做一份笔记，以后方便查阅。 redis是啥呢redis的官方站点 Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cac">
@@ -459,8 +459,8 @@
 <li><p>复制配置文件(从redis的源码目录中复制redis.conf到redis的安装目录)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /path/redis.conf /home/centos/redis/anzhuang</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>服务端启动与客户端连接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span>  /home/centos/redis/anzhuang/bin/</span><br><span class="line">./redis-server redis.conf  服务端启动</span><br><span class="line">./redis-cli [-h localhost -p 6379 ] 客户端连接</span><br><span class="line">~~~  </span><br><span class="line">默认redis端口号为6379，启动方式为前台启动，就是服务端启动打开一个界面，不能关闭，重新开一个客户端界面进行连接。</span><br><span class="line"></span><br><span class="line">10. 让redis以后台进程的形式运行  </span><br><span class="line"></span><br><span class="line"> 编辑conf配置文件,修改如下内容：</span><br><span class="line">~~~ bash</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure>
+<li><p>服务端启动与客户端连接(默认redis端口号为6379，启动方式为前台启动，就是服务端启动打开一个界面，不能关闭，重新开一个客户端界面进行连接)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span>  /home/centos/redis/anzhuang/bin/</span><br><span class="line">./redis-server redis.conf  服务端启动</span><br><span class="line">./redis-cli [-h localhost -p 6379 ] 客户端连接</span><br><span class="line">~~~  </span><br><span class="line">10. 让redis以后台进程的形式运行  </span><br><span class="line"></span><br><span class="line"> 编辑conf配置文件,修改如下内容：</span><br><span class="line">~~~ bash</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>至此，redis已经安装完成，是不是很简单呢？？Enjoy<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep redis  查看redis运行进程</span><br><span class="line">redis-cli shutdown  关闭redis服务</span><br><span class="line">/etc/init.d/redis-server start  启动redis</span><br><span class="line">/etc/init.d/redis-server stop  关闭redis</span><br><span class="line">/etc/init.d/redis-server restart  重启redis</span><br></pre></td></tr></table></figure></p>
