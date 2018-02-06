@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="我的第一个博客">
 <meta property="og:description" content="L代表左边头 R代表右边尾1lpush key value 作用: 把值插入到链表头部。1rpop key 作用: 返回并删除链表尾元素。rpush,lpop: 不解释1lrange key start  stop 作用: 返回链表中[start ,stop]中的元素。规律: 左数从0开始,右数从-1开始1lrem key count value 作用: 从key链表中删除 value值。注: 删">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-06T05:10:02.968Z">
+<meta property="og:updated_time" content="2018-02-06T05:11:56.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis对于List链表的操作(第四部分)">
 <meta name="twitter:description" content="L代表左边头 R代表右边尾1lpush key value 作用: 把值插入到链表头部。1rpop key 作用: 返回并删除链表尾元素。rpush,lpop: 不解释1lrange key start  stop 作用: 返回链表中[start ,stop]中的元素。规律: 左数从0开始,右数从-1开始1lrem key count value 作用: 从key链表中删除 value值。注: 删">
@@ -449,9 +449,9 @@
 <ol>
 <li>Rpoplpush task bak；</li>
 <li>接收返回值,并做业务处理；</li>
-<li>如果成功,rpop bak 清除任务。 如不成功,下次从bak表里取任务。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brpop | blpop  key timeout</span><br></pre></td></tr></table></figure>
-</li>
+<li>如果成功,rpop bak 清除任务。 如不成功,下次从bak表里取任务。</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brpop | blpop  key timeout</span><br></pre></td></tr></table></figure>
 <p>作用:等待弹出key的尾/头元素。<br>Timeout为等待超时时间<br>如果timeout为0,则一直等待</p>
 <p><strong>场景</strong>: 长轮询Ajax,在线聊天时,能够用到。</p>
 
