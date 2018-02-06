@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="我的第一个博客">
 <meta property="og:description" content="L代表左边头 R代表右边尾1lpush key value 作用: 把值插入到链表头部。1rpop key 作用: 返回并删除链表尾元素。rpush,lpop: 不解释1lrange key start  stop 作用: 返回链表中[start ,stop]中的元素。规律: 左数从0开始,右数从-1开始1lrem key count value 作用: 从key链表中删除 value值。注: 删">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-06T05:04:14.762Z">
+<meta property="og:updated_time" content="2018-02-06T05:10:02.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis对于List链表的操作(第四部分)">
 <meta name="twitter:description" content="L代表左边头 R代表右边尾1lpush key value 作用: 把值插入到链表头部。1rpop key 作用: 返回并删除链表尾元素。rpush,lpop: 不解释1lrange key start  stop 作用: 返回链表中[start ,stop]中的元素。规律: 左数从0开始,右数从-1开始1lrem key count value 作用: 从key链表中删除 value值。注: 删">
@@ -437,7 +437,8 @@
 <p>作用: 把值插入到链表头部。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpop key</span><br></pre></td></tr></table></figure></p>
 <p>作用: 返回并删除链表尾元素。<br>rpush,lpop: 不解释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrange key start  stop</span><br></pre></td></tr></table></figure></p>
 <p>作用: 返回链表中[start ,stop]中的元素。<br><strong>规律</strong>: 左数从0开始,右数从-1开始<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrem key count value</span><br></pre></td></tr></table></figure></p>
-<p>作用: 从key链表中删除 value值。<br><strong>注</strong>: 删除绝对值count个值为value后结束<br>Count&gt;0 从表头删除<br>Count<0 从表尾删除="" <figure="" class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ltrim key start stop</span><br></pre></td></tr></table></0></p>
+<p>作用: 从key链表中删除 value值。<br><strong>注</strong>: 删除绝对值count个值为value后结束<br>Count&gt;0 从表头删除<br>Count&lt;0 从表尾删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ltrim key start stop</span><br></pre></td></tr></table></figure>
 <p>作用: 剪切key对应的链表,切[start,stop]一段,并把该段重新赋给。key。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lindex key index</span><br></pre></td></tr></table></figure></p>
 <p>作用: 返回index索引上的值。<br>如  lindex key 2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">llen key</span><br></pre></td></tr></table></figure></p>
 <p>作用:计算链表的元素个数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; llen task</span><br><span class="line">(integer) 3</span><br></pre></td></tr></table></figure></p>

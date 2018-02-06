@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[redis对于List链表的操作(第四部分)]]></title>
     <url>%2F2018%2F02%2F06%2Fredis%E5%AF%B9%E4%BA%8Elist%E9%93%BE%E8%A1%A8%E7%9A%84%E6%93%8D%E4%BD%9C(%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86)%2F</url>
-    <content type="text"><![CDATA[L代表左边头 R代表右边尾1lpush key value 作用: 把值插入到链表头部。1rpop key 作用: 返回并删除链表尾元素。rpush,lpop: 不解释1lrange key start stop 作用: 返回链表中[start ,stop]中的元素。规律: 左数从0开始,右数从-1开始1lrem key count value 作用: 从key链表中删除 value值。注: 删除绝对值count个值为value后结束Count&gt;0 从表头删除Count]]></content>
+    <content type="text"><![CDATA[L代表左边头 R代表右边尾1lpush key value 作用: 把值插入到链表头部。1rpop key 作用: 返回并删除链表尾元素。rpush,lpop: 不解释1lrange key start stop 作用: 返回链表中[start ,stop]中的元素。规律: 左数从0开始,右数从-1开始1lrem key count value 作用: 从key链表中删除 value值。注: 删除绝对值count个值为value后结束Count&gt;0 从表头删除Count&lt;0 从表尾删除 1ltrim key start stop 作用: 剪切key对应的链表,切[start,stop]一段,并把该段重新赋给。key。1lindex key index 作用: 返回index索引上的值。如 lindex key 21llen key 作用:计算链表的元素个数。12redis 127.0.0.1:6379&gt; llen task(integer) 3 1linsert key after|before search value 作用: 在key链表中寻找’search’,并在search值之前|之后,插入value注: 一旦找到一个search(如果有多个值，找到第一个)后,命令就结束了,因此不会插入多个value。 重要1rpoplpush source dest 作用: 把source的尾部拿出,放在dest的头部,并返回该单元值。场景: task + bak 双链表完成安全队列。业务逻辑: Rpoplpush task bak； 接收返回值,并做业务处理； 如果成功,rpop bak 清除任务。 如不成功,下次从bak表里取任务。1brpop | blpop key timeout 作用:等待弹出key的尾/头元素。Timeout为等待超时时间如果timeout为0,则一直等待 场景: 长轮询Ajax,在线聊天时,能够用到。]]></content>
       <categories>
         <category>redis</category>
       </categories>
