@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="教程| redis教程 | redis对于String的操作," />
 
 
 
@@ -85,16 +85,18 @@
 
 
 
-<meta name="description" content="累吗？？累就对啦，，舒服是留给死人的。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的第一个博客">
-<meta property="og:url" content="http://yoursite.com/tags/教程-Hexo教程-Hexo源文件备份/index.html">
+<meta name="description" content="1set key value [ex 秒数] / [px 毫秒数]  [nx] /[xx] 如: set a 1 ex 10 , 设置a的有效期为10秒   set a 1 px 9000 , 设置a的有效期为9秒(9000毫秒)注: 如果ex,px同时写,以px有效期为准如 set a 1 ex 100 px 9000, a的实际有效期是9000毫秒nx: 表示key不存在时,执行操作xx: 表">
+<meta name="keywords" content="教程| redis教程 | redis对于String的操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis对于String的操作(第三部分)">
+<meta property="og:url" content="http://yoursite.com/2018/02/06/redis对于String的操作(第三部分)/index.html">
 <meta property="og:site_name" content="我的第一个博客">
-<meta property="og:description" content="累吗？？累就对啦，，舒服是留给死人的。">
+<meta property="og:description" content="1set key value [ex 秒数] / [px 毫秒数]  [nx] /[xx] 如: set a 1 ex 10 , 设置a的有效期为10秒   set a 1 px 9000 , 设置a的有效期为9秒(9000毫秒)注: 如果ex,px同时写,以px有效期为准如 set a 1 ex 100 px 9000, a的实际有效期是9000毫秒nx: 表示key不存在时,执行操作xx: 表">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-06T02:37:30.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一个博客">
-<meta name="twitter:description" content="累吗？？累就对啦，，舒服是留给死人的。">
+<meta name="twitter:title" content="redis对于String的操作(第三部分)">
+<meta name="twitter:description" content="1set key value [ex 秒数] / [px 毫秒数]  [nx] /[xx] 如: set a 1 ex 10 , 设置a的有效期为10秒   set a 1 px 9000 , 设置a的有效期为9秒(9000毫秒)注: 如果ex,px同时写,以px有效期为准如 set a 1 ex 100 px 9000, a的实际有效期是9000毫秒nx: 表示key不存在时,执行操作xx: 表">
 
 
 
@@ -124,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/教程-Hexo教程-Hexo源文件备份/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/06/redis对于String的操作(第三部分)/"/>
 
 
 
 
 
-  <title>标签: 教程| Hexo教程 | Hexo源文件备份 | 我的第一个博客</title>
+  <title>redis对于String的操作(第三部分) | 我的第一个博客</title>
   
 
 
@@ -159,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -307,54 +309,296 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>教程| Hexo教程 | Hexo源文件备份<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/06/redis对于String的操作(第三部分)/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="夏茂盛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的第一个博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/11/11/Hexo博客源文件备份/" itemprop="url">
-              
-                <span itemprop="name">Hexo博客源文件备份</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">redis对于String的操作(第三部分)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-11T12:49:00+08:00"
-              content="2017-11-11" >
-          11-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T10:07:12+08:00">
+                2018-02-06
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/06/redis对于String的操作(第三部分)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/02/06/redis对于String的操作(第三部分)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/02/06/redis对于String的操作(第三部分)/" class="leancloud_visitors" data-flag-title="redis对于String的操作(第三部分)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set key value [ex 秒数] / [px 毫秒数]  [nx] /[xx]</span><br></pre></td></tr></table></figure>
+<p>如: set a 1 ex 10 , 设置a的有效期为10秒<br>   set a 1 px 9000 , 设置a的有效期为9秒(9000毫秒)<br><strong>注</strong>: 如果ex,px同时写,以px有效期为准<br>如 set a 1 ex 100 px 9000, a的实际有效期是9000毫秒<br>nx: 表示key不存在时,执行操作<br>xx: 表示key必须存在时,执行操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mset  multi set</span><br></pre></td></tr></table></figure></p>
+<p>一次性设置多个键值<br>例: mset key1 v1 key2 v2 ….<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get key</span><br></pre></td></tr></table></figure></p>
+<p>作用:获取key的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mget key1 key2 ..keyn</span><br></pre></td></tr></table></figure></p>
+<p>作用:获取多个key的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setrange key offset value</span><br></pre></td></tr></table></figure></p>
+<p>作用:把字符串的offset偏移字节,改成value<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; set greet hello</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; setrange greet 2 ??</span><br><span class="line">(integer) 5</span><br><span class="line">redis 127.0.0.1:6379&gt; get greet</span><br><span class="line">&quot;he??o&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>: 如果偏移量&gt;字符长度, 该字符自动补0x00<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; setrange greet 6 !</span><br><span class="line">(integer) 7</span><br><span class="line">redis 127.0.0.1:6379&gt; get greet</span><br><span class="line">&quot;heyyo\x00!&quot;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">append key value</span><br></pre></td></tr></table></figure>
+<p>作用: 把value追加到key的原值上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getrange key start stop</span><br><span class="line">redis 127.0.0.1:6379&gt; set title &apos;chinese&apos;</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; getrange title 0 3</span><br><span class="line">&quot;chin&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; getrange title 1 -2</span><br><span class="line">&quot;hines&quot;</span><br></pre></td></tr></table></figure></p>
+<p>作用: 是获取字符串中 [start, stop]范围的值<br><strong>注意</strong>: 对于字符串的下标,左数从0开始,右数从-1开始</p>
+<ol>
+<li>start&gt;=length, 则返回空字符串</li>
+<li>stop&gt;=length,则截取至字符结尾</li>
+<li>如果start 所处位置在stop右边, 返回空字符串  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getset key newvalue</span><br><span class="line">redis 127.0.0.1:6379&gt; set cnt 0</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; getset cnt 1</span><br><span class="line">&quot;0&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; getset cnt 2</span><br><span class="line">&quot;1&quot;</span><br></pre></td></tr></table></figure>
+<p>作用: 获取并返回旧值,设置新值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">incr key</span><br></pre></td></tr></table></figure></p>
+<p>作用: 指定的key的值加1,并返回加1后的值<br><strong>注意</strong>：</p>
+<ol>
+<li>不存在的key当成0,再incr操作</li>
+<li>范围为64有符号  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">incrby key number</span><br><span class="line">redis 127.0.0.1:6379&gt; incrby age  90</span><br><span class="line">(integer) 92</span><br></pre></td></tr></table></figure>
+<p>作用: 指定的key的值加number,并返回加number后的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">incrbyfloat key floatnumber</span><br><span class="line">redis 127.0.0.1:6379&gt; incrbyfloat age 3.5</span><br><span class="line">&quot;95.5&quot;</span><br></pre></td></tr></table></figure></p>
+<p>作用: 指定的key的值加浮点数,并返回加浮点数后的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">decr key</span><br><span class="line">redis 127.0.0.1:6379&gt; set age 20</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; decr age</span><br><span class="line">(integer) 19</span><br><span class="line">decrby key number</span><br><span class="line">redis 127.0.0.1:6379&gt; decrby age 3</span><br><span class="line">(integer) 16</span><br></pre></td></tr></table></figure></p>
+<p>作用：和incr，incrby正好相反，这里不再多说。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getbit key offset</span><br><span class="line">redis 127.0.0.1:6379&gt; set char A</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; getbit char 1</span><br><span class="line">(integer) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; getbit char 2</span><br><span class="line">(integer) 0</span><br><span class="line">redis 127.0.0.1:6379&gt; getbit char 7</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure></p>
+<p>作用:获取值的二进制表示,对应位上的值(从左,从0编号)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setbit  key offset value</span><br></pre></td></tr></table></figure></p>
+<p>作用：设置offset对应二进制位上的值<br>返回: 该位上的旧值<br><strong>注意</strong>:  </p>
+<ol>
+<li>如果offset过大,则会在中间填充0,</li>
+<li>offset最大大到多少</li>
+<li>offset最大2^32-1,可推出最大的的字符串为512M  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bitop operation destkey key1 [key2 ...]</span><br></pre></td></tr></table></figure>
+<p>对key1,key2..keyN作operation,并将结果保存到 destkey 上。<br>operation 可以是 AND 、 OR 、 NOT 、 XOR<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; setbit lower 7 0</span><br><span class="line">(integer) 0</span><br><span class="line">redis 127.0.0.1:6379&gt; setbit lower 2 1</span><br><span class="line">(integer) 0</span><br><span class="line">redis 127.0.0.1:6379&gt; get lower</span><br><span class="line">&quot; &quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; set char Q</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; get char</span><br><span class="line">&quot;Q&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; bitop or char char lower</span><br><span class="line">(integer) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; get char</span><br><span class="line">&quot;q&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>: 对于NOT操作, key不能多个</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创造！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao-mid.png" alt="夏茂盛 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao-mid.png" alt="夏茂盛 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程-redis教程-redis对于String的操作/" rel="tag"># 教程| redis教程 | redis对于String的操作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/05/redis对于key的通用操作(第二部分)/" rel="next" title="redis对于key的通用操作(第二部分)">
+                <i class="fa fa-chevron-left"></i> redis对于key的通用操作(第二部分)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/06/redis对于list链表的操作(第四部分)/" rel="prev" title="redis对于List链表的操作(第四部分)">
+                redis对于List链表的操作(第四部分) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +606,18 @@
 
 
           
+
+  
+    
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -631,6 +887,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -677,6 +937,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '',
+            repo: '',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '0fc3fd47bc7cbc996b7cd90962fdff08fe87df1d',
+            
+                client_id: '63277d457afc6923ff8f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
@@ -1127,26 +1411,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
