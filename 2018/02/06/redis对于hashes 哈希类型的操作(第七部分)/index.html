@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="教程| redis教程 | redis对于String的操作," />
+  <meta name="keywords" content="教程| redis教程 | redis对于hashes 哈希类型的操作," />
 
 
 
@@ -85,18 +85,18 @@
 
 
 
-<meta name="description" content="1set key value [ex 秒数] / [px 毫秒数]  [nx] /[xx] 如: set a 1 ex 10 , 设置a的有效期为10秒   set a 1 px 9000 , 设置a的有效期为9秒(9000毫秒)注: 如果ex,px同时写,以px有效期为准如 set a 1 ex 100 px 9000, a的实际有效期是9000毫秒nx: 表示key不存在时,执行操作xx: 表">
-<meta name="keywords" content="教程| redis教程 | redis对于String的操作">
+<meta name="description" content="可以将redis中的hashes类型看成具有String key和String value的map容器。1hset key field value 作用: 把key中 field域的值设为value。注:如果没有field域,直接添加,如果有,则覆盖原field域的值。1hmset key field1 value1 [field2 value2 field3 value3 ......field">
+<meta name="keywords" content="教程| redis教程 | redis对于hashes 哈希类型的操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis对于String的操作(第三部分)">
-<meta property="og:url" content="http://yoursite.com/2018/02/06/redis对于String的操作(第三部分)/index.html">
+<meta property="og:title" content="redis对于hashes 哈希类型的操作(第七部分)">
+<meta property="og:url" content="http://yoursite.com/2018/02/06/redis对于hashes 哈希类型的操作(第七部分)/index.html">
 <meta property="og:site_name" content="我的第一个博客">
-<meta property="og:description" content="1set key value [ex 秒数] / [px 毫秒数]  [nx] /[xx] 如: set a 1 ex 10 , 设置a的有效期为10秒   set a 1 px 9000 , 设置a的有效期为9秒(9000毫秒)注: 如果ex,px同时写,以px有效期为准如 set a 1 ex 100 px 9000, a的实际有效期是9000毫秒nx: 表示key不存在时,执行操作xx: 表">
+<meta property="og:description" content="可以将redis中的hashes类型看成具有String key和String value的map容器。1hset key field value 作用: 把key中 field域的值设为value。注:如果没有field域,直接添加,如果有,则覆盖原field域的值。1hmset key field1 value1 [field2 value2 field3 value3 ......field">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-06T02:37:30.965Z">
+<meta property="og:updated_time" content="2018-02-06T09:47:31.044Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis对于String的操作(第三部分)">
-<meta name="twitter:description" content="1set key value [ex 秒数] / [px 毫秒数]  [nx] /[xx] 如: set a 1 ex 10 , 设置a的有效期为10秒   set a 1 px 9000 , 设置a的有效期为9秒(9000毫秒)注: 如果ex,px同时写,以px有效期为准如 set a 1 ex 100 px 9000, a的实际有效期是9000毫秒nx: 表示key不存在时,执行操作xx: 表">
+<meta name="twitter:title" content="redis对于hashes 哈希类型的操作(第七部分)">
+<meta name="twitter:description" content="可以将redis中的hashes类型看成具有String key和String value的map容器。1hset key field value 作用: 把key中 field域的值设为value。注:如果没有field域,直接添加,如果有,则覆盖原field域的值。1hmset key field1 value1 [field2 value2 field3 value3 ......field">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/06/redis对于String的操作(第三部分)/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/06/redis对于hashes 哈希类型的操作(第七部分)/"/>
 
 
 
 
 
-  <title>redis对于String的操作(第三部分) | 我的第一个博客</title>
+  <title>redis对于hashes 哈希类型的操作(第七部分) | 我的第一个博客</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/06/redis对于String的操作(第三部分)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/06/redis对于hashes 哈希类型的操作(第七部分)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="夏茂盛">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">redis对于String的操作(第三部分)</h1>
+          <h1 class="post-title" itemprop="name headline">redis对于hashes 哈希类型的操作(第七部分)</h1>
         
 
         <div class="post-meta">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T10:07:12+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T17:42:28+08:00">
                 2018-02-06
               </time>
             
@@ -393,8 +393,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/06/redis对于String的操作(第三部分)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/02/06/redis对于String的操作(第三部分)/" itemprop="commentsCount"></span>
+                <a href="/2018/02/06/redis对于hashes 哈希类型的操作(第七部分)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/02/06/redis对于hashes 哈希类型的操作(第七部分)/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -402,7 +402,7 @@
 
           
           
-             <span id="/2018/02/06/redis对于String的操作(第三部分)/" class="leancloud_visitors" data-flag-title="redis对于String的操作(第三部分)">
+             <span id="/2018/02/06/redis对于hashes 哈希类型的操作(第七部分)/" class="leancloud_visitors" data-flag-title="redis对于hashes 哈希类型的操作(第七部分)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,42 +433,19 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set key value [ex 秒数] / [px 毫秒数]  [nx] /[xx]</span><br></pre></td></tr></table></figure>
-<p>如: set a 1 ex 10 , 设置a的有效期为10秒<br>   set a 1 px 9000 , 设置a的有效期为9秒(9000毫秒)<br><strong>注</strong>: 如果ex,px同时写,以px有效期为准<br>如 set a 1 ex 100 px 9000, a的实际有效期是9000毫秒<br>nx: 表示key不存在时,执行操作<br>xx: 表示key必须存在时,执行操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mset  multi set</span><br></pre></td></tr></table></figure></p>
-<p>一次性设置多个键值<br>例: mset key1 v1 key2 v2 ….<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get key</span><br></pre></td></tr></table></figure></p>
-<p>作用:获取key的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mget key1 key2 ..keyn</span><br></pre></td></tr></table></figure></p>
-<p>作用:获取多个key的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setrange key offset value</span><br></pre></td></tr></table></figure></p>
-<p>作用:把字符串的offset偏移字节,改成value<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; set greet hello</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; setrange greet 2 ??</span><br><span class="line">(integer) 5</span><br><span class="line">redis 127.0.0.1:6379&gt; get greet</span><br><span class="line">&quot;he??o&quot;</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意</strong>: 如果偏移量&gt;字符长度, 该字符自动补0x00<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; setrange greet 6 !</span><br><span class="line">(integer) 7</span><br><span class="line">redis 127.0.0.1:6379&gt; get greet</span><br><span class="line">&quot;heyyo\x00!&quot;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">append key value</span><br></pre></td></tr></table></figure>
-<p>作用: 把value追加到key的原值上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getrange key start stop</span><br><span class="line">redis 127.0.0.1:6379&gt; set title &apos;chinese&apos;</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; getrange title 0 3</span><br><span class="line">&quot;chin&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; getrange title 1 -2</span><br><span class="line">&quot;hines&quot;</span><br></pre></td></tr></table></figure></p>
-<p>作用: 是获取字符串中 [start, stop]范围的值<br><strong>注意</strong>: 对于字符串的下标,左数从0开始,右数从-1开始</p>
-<ol>
-<li>start&gt;=length, 则返回空字符串</li>
-<li>stop&gt;=length,则截取至字符结尾</li>
-<li>如果start 所处位置在stop右边, 返回空字符串  </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getset key newvalue</span><br><span class="line">redis 127.0.0.1:6379&gt; set cnt 0</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; getset cnt 1</span><br><span class="line">&quot;0&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; getset cnt 2</span><br><span class="line">&quot;1&quot;</span><br></pre></td></tr></table></figure>
-<p>作用: 获取并返回旧值,设置新值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">incr key</span><br></pre></td></tr></table></figure></p>
-<p>作用: 指定的key的值加1,并返回加1后的值<br><strong>注意</strong>：</p>
-<ol>
-<li>不存在的key当成0,再incr操作</li>
-<li>范围为64有符号  </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">incrby key number</span><br><span class="line">redis 127.0.0.1:6379&gt; incrby age  90</span><br><span class="line">(integer) 92</span><br></pre></td></tr></table></figure>
-<p>作用: 指定的key的值加number,并返回加number后的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">incrbyfloat key floatnumber</span><br><span class="line">redis 127.0.0.1:6379&gt; incrbyfloat age 3.5</span><br><span class="line">&quot;95.5&quot;</span><br></pre></td></tr></table></figure></p>
-<p>作用: 指定的key的值加浮点数,并返回加浮点数后的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">decr key</span><br><span class="line">redis 127.0.0.1:6379&gt; set age 20</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; decr age</span><br><span class="line">(integer) 19</span><br><span class="line">decrby key number</span><br><span class="line">redis 127.0.0.1:6379&gt; decrby age 3</span><br><span class="line">(integer) 16</span><br></pre></td></tr></table></figure></p>
-<p>作用：和incr，incrby正好相反，这里不再多说。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getbit key offset</span><br><span class="line">redis 127.0.0.1:6379&gt; set char A</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; getbit char 1</span><br><span class="line">(integer) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; getbit char 2</span><br><span class="line">(integer) 0</span><br><span class="line">redis 127.0.0.1:6379&gt; getbit char 7</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure></p>
-<p>作用:获取值的二进制表示,对应位上的值(从左,从0编号)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setbit  key offset value</span><br></pre></td></tr></table></figure></p>
-<p>作用：设置offset对应二进制位上的值<br>返回: 该位上的旧值<br><strong>注意</strong>:  </p>
-<ol>
-<li>如果offset过大,则会在中间填充0,</li>
-<li>offset最大大到多少</li>
-<li>offset最大2^32-1,可推出最大的的字符串为512M  </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bitop operation destkey key1 [key2 ...]</span><br></pre></td></tr></table></figure>
-<p>对key1,key2..keyN作operation,并将结果保存到 destkey 上。<br>operation 可以是 AND 、 OR 、 NOT 、 XOR<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; setbit lower 7 0</span><br><span class="line">(integer) 0</span><br><span class="line">redis 127.0.0.1:6379&gt; setbit lower 2 1</span><br><span class="line">(integer) 0</span><br><span class="line">redis 127.0.0.1:6379&gt; get lower</span><br><span class="line">&quot; &quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; set char Q</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; get char</span><br><span class="line">&quot;Q&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; bitop or char char lower</span><br><span class="line">(integer) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; get char</span><br><span class="line">&quot;q&quot;</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意</strong>: 对于NOT操作, key不能多个</p>
+        <p>可以将redis中的hashes类型看成具有String key和String value的map容器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hset key field value</span><br></pre></td></tr></table></figure></p>
+<p>作用: 把key中 field域的值设为value。<br><strong>注</strong>:如果没有field域,直接添加,如果有,则覆盖原field域的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hmset key field1 value1 [field2 value2 field3 value3 ......fieldn valuen]</span><br></pre></td></tr></table></figure></p>
+<p>作用: 设置field1-&gt;N 个域, 对应的值是value1-&gt;N。<br>(对应PHP理解为  $key = array(file1=&gt;value1, field2=&gt;value2 ….fieldN=&gt;valueN))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hget key field</span><br></pre></td></tr></table></figure></p>
+<p>作用: 返回key中field域的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hmget key field1 field2 fieldN</span><br></pre></td></tr></table></figure></p>
+<p>作用: 返回key中field1 field2 fieldN域的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hgetall key</span><br></pre></td></tr></table></figure></p>
+<p>作用:返回key中,所有域与其值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdel key field</span><br></pre></td></tr></table></figure></p>
+<p>作用: 删除key中所有field域。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hlen key</span><br></pre></td></tr></table></figure></p>
+<p>作用: 返回key中元素的数量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexists key field</span><br></pre></td></tr></table></figure></p>
+<p>作用: 判断key中有没有field域。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hinrby key field value</span><br></pre></td></tr></table></figure></p>
+<p>作用: 把key中的field域的值<strong>增长整型值</strong>value。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hinrby float  key field value</span><br></pre></td></tr></table></figure></p>
+<p>作用: 把key中的field域的值<strong>增长浮点值</strong>value。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hkeys key</span><br></pre></td></tr></table></figure></p>
+<p>作用: 返回key中所有的field。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kvals key</span><br></pre></td></tr></table></figure></p>
+<p>作用: 返回key中所有的value。</p>
 
       
     </div>
@@ -515,7 +492,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/教程-redis教程-redis对于String的操作/" rel="tag"># 教程| redis教程 | redis对于String的操作</a>
+            <a href="/tags/教程-redis教程-redis对于hashes-哈希类型的操作/" rel="tag"># 教程| redis教程 | redis对于hashes 哈希类型的操作</a>
           
         </div>
       
@@ -528,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/05/redis对于key的通用操作(第二部分)/" rel="next" title="redis对于key的通用操作(第二部分)">
-                <i class="fa fa-chevron-left"></i> redis对于key的通用操作(第二部分)
+              <a href="/2018/02/06/redis对于order-set有序集合的操作(第六部分)/" rel="next" title="redis对于order set有序集合的操作(第六部分)">
+                <i class="fa fa-chevron-left"></i> redis对于order set有序集合的操作(第六部分)
               </a>
             
           </div>
@@ -537,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/06/redis对于list链表的操作(第四部分)/" rel="prev" title="redis对于List链表的操作(第四部分)">
-                redis对于List链表的操作(第四部分) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

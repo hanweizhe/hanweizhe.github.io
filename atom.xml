@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-06T09:17:03.919Z</updated>
+  <updated>2018-02-06T09:47:31.044Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis对于hashes 哈希类型的操作(第七部分)</title>
+    <link href="http://yoursite.com/2018/02/06/redis%E5%AF%B9%E4%BA%8Ehashes%20%E5%93%88%E5%B8%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C(%E7%AC%AC%E4%B8%83%E9%83%A8%E5%88%86)/"/>
+    <id>http://yoursite.com/2018/02/06/redis对于hashes 哈希类型的操作(第七部分)/</id>
+    <published>2018-02-06T09:42:28.000Z</published>
+    <updated>2018-02-06T09:47:31.044Z</updated>
+    
+    <content type="html"><![CDATA[<p>可以将redis中的hashes类型看成具有String key和String value的map容器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hset key field value</span><br></pre></td></tr></table></figure></p><p>作用: 把key中 field域的值设为value。<br><strong>注</strong>:如果没有field域,直接添加,如果有,则覆盖原field域的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hmset key field1 value1 [field2 value2 field3 value3 ......fieldn valuen]</span><br></pre></td></tr></table></figure></p><p>作用: 设置field1-&gt;N 个域, 对应的值是value1-&gt;N。<br>(对应PHP理解为  $key = array(file1=&gt;value1, field2=&gt;value2 ….fieldN=&gt;valueN))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hget key field</span><br></pre></td></tr></table></figure></p><p>作用: 返回key中field域的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hmget key field1 field2 fieldN</span><br></pre></td></tr></table></figure></p><p>作用: 返回key中field1 field2 fieldN域的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hgetall key</span><br></pre></td></tr></table></figure></p><p>作用:返回key中,所有域与其值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdel key field</span><br></pre></td></tr></table></figure></p><p>作用: 删除key中所有field域。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hlen key</span><br></pre></td></tr></table></figure></p><p>作用: 返回key中元素的数量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexists key field</span><br></pre></td></tr></table></figure></p><p>作用: 判断key中有没有field域。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hinrby key field value</span><br></pre></td></tr></table></figure></p><p>作用: 把key中的field域的值<strong>增长整型值</strong>value。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hinrby float  key field value</span><br></pre></td></tr></table></figure></p><p>作用: 把key中的field域的值<strong>增长浮点值</strong>value。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hkeys key</span><br></pre></td></tr></table></figure></p><p>作用: 返回key中所有的field。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kvals key</span><br></pre></td></tr></table></figure></p><p>作用: 返回key中所有的value。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;可以将redis中的hashes类型看成具有String key和String value的map容器。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;l
+      
+    
+    </summary>
+    
+      <category term="redis" scheme="http://yoursite.com/categories/redis/"/>
+    
+    
+      <category term="教程| redis教程 | redis对于hashes 哈希类型的操作" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B-redis%E6%95%99%E7%A8%8B-redis%E5%AF%B9%E4%BA%8Ehashes-%E5%93%88%E5%B8%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>redis对于order set有序集合的操作(第六部分)</title>
