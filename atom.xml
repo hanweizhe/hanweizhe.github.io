@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-06T09:47:31.044Z</updated>
+  <updated>2018-02-07T03:16:07.257Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis的事务(第八部分)</title>
+    <link href="http://yoursite.com/2018/02/07/redis%E7%9A%84%E4%BA%8B%E5%8A%A1(%E7%AC%AC%E5%85%AB%E9%83%A8%E5%88%86)/"/>
+    <id>http://yoursite.com/2018/02/07/redis的事务(第八部分)/</id>
+    <published>2018-02-07T03:03:56.000Z</published>
+    <updated>2018-02-07T03:16:07.257Z</updated>
+    
+    <content type="html"><![CDATA[<p>Redis支持简单的事务<br>Redis与 mysql事务的对比:</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center">Mysql</th><th style="text-align:center">Redis</th></tr></thead><tbody><tr><td style="text-align:center">开启</td><td style="text-align:center">start transaction</td><td style="text-align:center">multi</td></tr><tr><td style="text-align:center">语句</td><td style="text-align:center">普通sql</td><td style="text-align:center">普通命令</td></tr><tr><td style="text-align:center">失败</td><td style="text-align:center">rollback 回滚</td><td style="text-align:center">discard 取消</td></tr><tr><td style="text-align:center">成功</td><td style="text-align:center">commit</td><td style="text-align:center">exec</td></tr></tbody></table><p><strong>注</strong>: rollback与discard 的区别:<br>如果已经成功执行了2条语句, 第3条语句出错.<br>Rollback后,前2条的语句影响消失.<br>Discard只是结束本次事务,前2条语句造成的影响仍然还在.<br>注:<br>在multi后面的语句中, 语句出错可能有2种情况:</p><ol><li>语法就有问题, 这种exec时报错, 所有语句得不到执行.</li><li>语法本身没错,但适用对象有问题. 比如 zadd 操作list对象,Exec之后,会执行正确的语句,并跳过有不适当的语句.<br>(如果zadd操作list这种事怎么避免? 这一点,由程序员负责)</li></ol><p><strong>思考</strong>:<br>我正在买票<br>Ticket -1 , money -100<br>而票只有1张, 如果在我multi之后,和exec之前, 票被别人买了—即ticket变成0了.<br>我该如何观察这种情景,并不再提交.<br><strong>悲观的想法</strong>:<br>世界充满危险,肯定有人和我抢, 给 ticket上锁, 只有我能操作. [<strong>悲观锁</strong>]<br><strong>乐观的想法</strong>:<br>世界美好,没有那么人和我抢,因此,我只需要注意,有没有人更改ticket的值就可以了.[<strong>乐观锁</strong>]<br><strong>Redis的事务中,启用的是乐观锁,只负责监测key没有被改动.</strong><br>具体的命令—-  watch命令<br>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; watch ticket</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">redis 127.0.0.1:6379&gt; decr ticket</span><br><span class="line">QUEUED</span><br><span class="line">redis 127.0.0.1:6379&gt; decrby money 100</span><br><span class="line">QUEUED</span><br><span class="line">redis 127.0.0.1:6379&gt; exec</span><br><span class="line">(nil)   // 返回nil,说明监视的ticket已经改变了,事务就取消了.</span><br><span class="line">redis 127.0.0.1:6379&gt; get ticket</span><br><span class="line">&quot;0&quot;</span><br><span class="line">redis 127.0.0.1:6379&gt; get money</span><br><span class="line">&quot;200&quot;</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch key1 key2  ... keyN</span><br></pre></td></tr></table></figure><p>作用:监听key1 key2..keyN有没有变化,如果有变,则事务取消.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unwatch</span><br></pre></td></tr></table></figure></p><p>作用: 取消watch命令对于所有key的监听.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Redis支持简单的事务&lt;br&gt;Redis与 mysql事务的对比:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;Mysql&lt;/th&gt;
+
+      
+    
+    </summary>
+    
+      <category term="redis" scheme="http://yoursite.com/categories/redis/"/>
+    
+    
+      <category term="教程| redis教程 | redis的事务" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B-redis%E6%95%99%E7%A8%8B-redis%E7%9A%84%E4%BA%8B%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>redis对于hashes 哈希类型的操作(第七部分)</title>
