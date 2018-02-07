@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-07T03:16:07.257Z</updated>
+  <updated>2018-02-07T05:31:07.953Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis消息订阅(第九部分)</title>
+    <link href="http://yoursite.com/2018/02/07/redis%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85(%E7%AC%AC%E4%B9%9D%E9%83%A8%E5%88%86)/"/>
+    <id>http://yoursite.com/2018/02/07/redis消息订阅(第九部分)/</id>
+    <published>2018-02-07T05:27:56.000Z</published>
+    <updated>2018-02-07T05:31:07.953Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用办法:<br><strong>订阅端</strong>: subscribe 频道名称<br><strong>发布端</strong>: publish 频道名称 发布内容<br>服务端例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; publish news &apos;good good study&apos;</span><br><span class="line">(integer) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; publish news &apos;day day up&apos;</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure></p><p>客户端例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; subscribe news</span><br><span class="line">Reading messages... (press Ctrl-C to quit)</span><br><span class="line">1) &quot;subscribe&quot;</span><br><span class="line">2) &quot;news&quot;</span><br><span class="line">3) (integer) 1</span><br><span class="line">1) &quot;message&quot;</span><br><span class="line">2) &quot;news&quot;</span><br><span class="line">3) &quot;good good study&quot;</span><br><span class="line">1) &quot;message&quot;</span><br><span class="line">2) &quot;news&quot;</span><br><span class="line">3) &quot;day day up&quot;</span><br></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psubscribe new*</span><br></pre></td></tr></table></figure><p>根据匹配模式一次性监听多个频道.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用办法:&lt;br&gt;&lt;strong&gt;订阅端&lt;/strong&gt;: subscribe 频道名称&lt;br&gt;&lt;strong&gt;发布端&lt;/strong&gt;: publish 频道名称 发布内容&lt;br&gt;服务端例子:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;ta
+      
+    
+    </summary>
+    
+      <category term="redis" scheme="http://yoursite.com/categories/redis/"/>
+    
+    
+      <category term="教程| redis教程 | redis消息订阅" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B-redis%E6%95%99%E7%A8%8B-redis%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85/"/>
+    
+  </entry>
   
   <entry>
     <title>redis的事务(第八部分)</title>
