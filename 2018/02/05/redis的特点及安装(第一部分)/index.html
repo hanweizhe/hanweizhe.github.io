@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="我的第一个博客">
 <meta property="og:description" content="前言2017年已经接近尾声，最近自己在慧与实习(原惠普)也没啥事，闲暇之余，想起自己已经好久没有写博客，决定把redis的博客稍微写一写，相当于做一份笔记，以后方便查阅。 redis是啥呢redis的官方站点 Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cac">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-05T07:39:47.445Z">
+<meta property="og:updated_time" content="2018-02-08T03:35:35.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis的特点及安装(第一部分)">
 <meta name="twitter:description" content="前言2017年已经接近尾声，最近自己在慧与实习(原惠普)也没啥事，闲暇之余，想起自己已经好久没有写博客，决定把redis的博客稍微写一写，相当于做一份笔记，以后方便查阅。 redis是啥呢redis的官方站点 Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cac">
@@ -454,7 +454,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://download.redis.io/releases/redis-4.0.8.tar.gz</span><br><span class="line">$ tar xzf redis-4.0.8.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> redis-4.0.8</span><br><span class="line">$ make</span><br><span class="line">$ make  PREFIX=/home/centos/redis/anzhuang install 注: PREFIX要大写</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>make install之后,得到如下几个文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark  性能测试工具</span><br><span class="line">redis-check-aof  日志文件检测工具(比如断电造成日志损坏,可以检测并修复)</span><br><span class="line">redis-check-dump  快照文件检测工具,效果类上</span><br><span class="line">redis-cli  客户端</span><br><span class="line">redis-server 服务端</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark  性能测试工具</span><br><span class="line">redis-check-aof  日志文件检测工具(比如断电造成日志损坏,可以检测并修复)</span><br><span class="line">redis-check-dump  快照文件检测工具,效果类上</span><br><span class="line">redis-sentinel  哨兵，进行主从切换</span><br><span class="line">redis-cli  客户端</span><br><span class="line">redis-server 服务端</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>复制配置文件(从redis的源码目录中复制redis.conf到redis的安装目录)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /path/redis.conf /home/centos/redis/anzhuang</span><br></pre></td></tr></table></figure>
