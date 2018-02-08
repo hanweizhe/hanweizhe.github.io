@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="教程| redis教程 |  redis集群," />
 
 
 
@@ -85,16 +85,21 @@
 
 
 
-<meta name="description" content="累吗？？累就对啦，，舒服是留给死人的。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的第一个博客">
-<meta property="og:url" content="http://yoursite.com/categories/应用题/index.html">
+<meta name="description" content="redis集群 主从备份(防止主机宕机) 读写分离(主机写，从机读，分担master的任务) 任务分离(服务器分别分担备份工作与计算工作)  redis主从备份原理及通信过程主从备份原理图  第2种方式的好处:master宕机后,可以直接切换到slave1，不需要slave2重新指向slave1. 主从通信过程：  redis主从集群配置：Master配置:  关闭rdb快照(备份工作交给slav">
+<meta name="keywords" content="教程| redis教程 |  redis集群">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis集群(第十一部分)">
+<meta property="og:url" content="http://yoursite.com/2018/02/08/redis集群(第十一部分)/index.html">
 <meta property="og:site_name" content="我的第一个博客">
-<meta property="og:description" content="累吗？？累就对啦，，舒服是留给死人的。">
+<meta property="og:description" content="redis集群 主从备份(防止主机宕机) 读写分离(主机写，从机读，分担master的任务) 任务分离(服务器分别分担备份工作与计算工作)  redis主从备份原理及通信过程主从备份原理图  第2种方式的好处:master宕机后,可以直接切换到slave1，不需要slave2重新指向slave1. 主从通信过程：  redis主从集群配置：Master配置:  关闭rdb快照(备份工作交给slav">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/image/redis1.png">
+<meta property="og:image" content="http://yoursite.com/image/redis2.png">
+<meta property="og:updated_time" content="2018-02-08T05:20:44.436Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一个博客">
-<meta name="twitter:description" content="累吗？？累就对啦，，舒服是留给死人的。">
+<meta name="twitter:title" content="redis集群(第十一部分)">
+<meta name="twitter:description" content="redis集群 主从备份(防止主机宕机) 读写分离(主机写，从机读，分担master的任务) 任务分离(服务器分别分担备份工作与计算工作)  redis主从备份原理及通信过程主从备份原理图  第2种方式的好处:master宕机后,可以直接切换到slave1，不需要slave2重新指向slave1. 主从通信过程：  redis主从集群配置：Master配置:  关闭rdb快照(备份工作交给slav">
+<meta name="twitter:image" content="http://yoursite.com/image/redis1.png">
 
 
 
@@ -124,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/应用题/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/08/redis集群(第十一部分)/"/>
 
 
 
 
 
-  <title>分类: 应用题 | 我的第一个博客</title>
+  <title>redis集群(第十一部分) | 我的第一个博客</title>
   
 
 
@@ -159,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -307,55 +312,285 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>应用题<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/08/redis集群(第十一部分)/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="夏茂盛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的第一个博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/06/应用题-1/" itemprop="url">
-              
-                <span itemprop="name">应用题(1)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">redis集群(第十一部分)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-06T14:38:02+08:00"
-              content="2018-02-06" >
-          02-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-08T11:42:32+08:00">
+                2018-02-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/08/redis集群(第十一部分)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/02/08/redis集群(第十一部分)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/02/08/redis集群(第十一部分)/" class="leancloud_visitors" data-flag-title="redis集群(第十一部分)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="redis集群"><a href="#redis集群" class="headerlink" title="redis集群"></a>redis集群</h5><ol>
+<li>主从备份(防止主机宕机)</li>
+<li>读写分离(主机写，从机读，分担master的任务)</li>
+<li>任务分离(服务器分别分担备份工作与计算工作)</li>
+</ol>
+<h5 id="redis主从备份原理及通信过程"><a href="#redis主从备份原理及通信过程" class="headerlink" title="redis主从备份原理及通信过程"></a>redis主从备份原理及通信过程</h5><p><strong>主从备份原理图</strong></p>
+<p><img src="/image/redis1.png" alt="redis主从备份原理图"></p>
+<p>第2种方式的好处:<br>master宕机后,可以直接切换到slave1，不需要slave2重新指向slave1.</p>
+<p><strong>主从通信过程</strong>：</p>
+<p><img src="/image/redis2.png" alt="redis主从通信过程"></p>
+<h5 id="redis主从集群配置："><a href="#redis主从集群配置：" class="headerlink" title="redis主从集群配置："></a>redis主从集群配置：</h5><p><strong>Master配置</strong>:</p>
+<ol>
+<li>关闭rdb快照(备份工作交给slave)。</li>
+<li>可以开启aof。</li>
+</ol>
+<p><strong>slave配置</strong>:</p>
+<ol>
+<li>声明slave-of。</li>
+<li>配置密码[如果master有密码]。</li>
+<li>[某1个]slave打开 rdb快照功能。</li>
+<li>配置是否只读[slave-read-only]。</li>
+<li>改变端口。</li>
+</ol>
+<p>我的是 6379端口作为master；6380，6381作为slave.<br>     6379关闭rdb持久化，开启aof持久化<br>     6380开启rdb持久化，关闭aof持久化<br>     6381关闭rdb持久化，开启aof持久化<br><strong>运行结果</strong>：(没有设置密码)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[centos@localhost bin]$ ./redis-cli -p 6379</span><br><span class="line">127.0.0.1:6379&gt; set aa 123</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get aa</span><br><span class="line">&quot;123&quot;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[centos@localhost bin]$ ./redis-cli -p 6380</span><br><span class="line">127.0.0.1:6380&gt; get aa</span><br><span class="line">&quot;123&quot;</span><br><span class="line">127.0.0.1:6380&gt; set aa</span><br><span class="line">(error) ERR wrong number of arguments for &apos;set&apos; command</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[centos@localhost bin]$ ./redis-cli -p 6381</span><br><span class="line">127.0.0.1:6381&gt; get aa</span><br><span class="line">&quot;123&quot;</span><br><span class="line">127.0.0.1:6381&gt; set aa</span><br><span class="line">(error) ERR wrong number of arguments for &apos;set&apos; command</span><br></pre></td></tr></table></figure>
+<p>那么该如何<strong>设置密码</strong>呢？<br>master：requirepass 123<br>slave： masterauth 123<br>      requireauth 123<br>如果主从服务器密码不一致，从服务器无法获得主服务器数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[centos@localhost bin]$ ./redis-cli -p 6379</span><br><span class="line">127.0.0.1:6379&gt; set cc 123</span><br><span class="line">(error) NOAUTH Authentication required.</span><br><span class="line">127.0.0.1:6379&gt; auth 123</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set cc 123</span><br><span class="line">OK</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[centos@localhost bin]$ ./redis-cli -p 6380</span><br><span class="line">127.0.0.1:6380&gt; get cc</span><br><span class="line">(error) NOAUTH Authentication required.</span><br><span class="line">127.0.0.1:6380&gt; auth 123</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6380&gt; get cc</span><br><span class="line">&quot;123&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>redis主从复制的缺陷</strong>：<br>每次slave断开后(无论是主动断开,还是网络故障)，再连接master，都要master全部dump出来rdb,再aof,即同步的过程都要重新执行1遍.<br>所以要<strong>记住</strong>—多台slave不要一下都启动起来,否则master可能IO剧增。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创造！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao-mid.png" alt="夏茂盛 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao-mid.png" alt="夏茂盛 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程-redis教程-redis集群/" rel="tag"># 教程| redis教程 |  redis集群</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/07/redis持久化(第十部分)/" rel="next" title="redis持久化(第十部分)">
+                <i class="fa fa-chevron-left"></i> redis持久化(第十部分)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -363,6 +598,18 @@
 
 
           
+
+  
+    
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -383,8 +630,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -485,6 +741,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#redis集群"><span class="nav-number">1.</span> <span class="nav-text">redis集群</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#redis主从备份原理及通信过程"><span class="nav-number">2.</span> <span class="nav-text">redis主从备份原理及通信过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#redis主从集群配置："><span class="nav-number">3.</span> <span class="nav-text">redis主从集群配置：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -632,6 +904,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -678,6 +954,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '',
+            repo: '',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '0fc3fd47bc7cbc996b7cd90962fdff08fe87df1d',
+            
+                client_id: '63277d457afc6923ff8f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
@@ -1128,26 +1428,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
