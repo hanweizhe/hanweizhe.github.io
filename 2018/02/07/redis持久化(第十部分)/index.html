@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="我的第一个博客">
 <meta property="og:description" content="所谓持久化就是把数据存储于断电后不会丢失的设备中，通常是硬盘。Redis的持久化有2种方式:    rdb快照持久化：将数据库的快照以二进制的方式保存到磁盘中。   aof日志持久化：将所有对数据库进行写入的命令(及其参数)记录到aof文件中，以达到记录数据库状态的目的。  rdb快照持久化rdb的工作原理：每隔‘N分钟N个关键字’发生变化后，从内存dump数据形成rdb文件，‘压缩’，放在‘备份">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-07T08:39:22.560Z">
+<meta property="og:updated_time" content="2018-02-09T03:36:25.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis持久化(第十部分)">
 <meta name="twitter:description" content="所谓持久化就是把数据存储于断电后不会丢失的设备中，通常是硬盘。Redis的持久化有2种方式:    rdb快照持久化：将数据库的快照以二进制的方式保存到磁盘中。   aof日志持久化：将所有对数据库进行写入的命令(及其参数)记录到aof文件中，以达到记录数据库状态的目的。  rdb快照持久化rdb的工作原理：每隔‘N分钟N个关键字’发生变化后，从内存dump数据形成rdb文件，‘压缩’，放在‘备份">
@@ -451,6 +451,11 @@
 <li>恢复时rdb和aof哪个恢复的快？<br>答: rdb快,因为其是数据的内存映射,直接载入到内存,而aof是命令,需要逐条执行。</li>
 <li>原来一个key值为1，对同一个key操作100次(假如每次增加1)，最后key的值为101，aof产生100行记录,aof文件会很大,怎么解决?恢复的时候一条一条执行慢，为什么不直接执行最后一条命令？<br>答: aof重写就是为了把那些重复命令精简成几条命令进行重新写入aof文件。</li>
 </ol>
+<h5 id="报错权限问题"><a href="#报错权限问题" class="headerlink" title="报错权限问题"></a>报错权限问题</h5><p>chmod -R 777 bin</p>
+<ol>
+<li>添加aof功能后,可能redis服务启动不起来，把存放aof文件的权限修改一下就行.</li>
+<li>redis在shutdown的时候,会进行save操作,而save操作需要dump.rdb文件,如果没有权限会报错误</li>
+</ol>
 
       
     </div>
@@ -741,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#rdb快照持久化"><span class="nav-number">1.</span> <span class="nav-text">rdb快照持久化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#aof日志持久化"><span class="nav-number">2.</span> <span class="nav-text">aof日志持久化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题"><span class="nav-number">3.</span> <span class="nav-text">问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#rdb快照持久化"><span class="nav-number">1.</span> <span class="nav-text">rdb快照持久化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#aof日志持久化"><span class="nav-number">2.</span> <span class="nav-text">aof日志持久化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题"><span class="nav-number">3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#报错权限问题"><span class="nav-number">4.</span> <span class="nav-text">报错权限问题</span></a></li></ol></div>
             
 
           </div>
