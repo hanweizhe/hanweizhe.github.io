@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="教程| redis教程 | redis主从切换," />
 
 
 
@@ -85,16 +85,20 @@
 
 
 
-<meta name="description" content="累吗？？累就对啦，，舒服是留给死人的。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的第一个博客">
-<meta property="og:url" content="http://yoursite.com/tags/教程-设计模式教程-设计模式-策略模式/index.html">
+<meta name="description" content="redis主从复制可将主节点数据同步给从节点，一旦主节点宕机，某一从节点晋升为主节点，并且还需要把只读配置修改为可写，其余从节点重新指向新的主节点。那么该如何操作呢？？不着急！很简单！！哦哦哦！！ 人工干预我的master是6379；slave是6380和6381；当6379宕机后，6380为主节点，6381为从节点。在6380客户端进行操作:slave no one,将6380设置为主节点，co">
+<meta name="keywords" content="教程| redis教程 | redis主从切换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis主从切换(第十三部分)">
+<meta property="og:url" content="http://yoursite.com/2018/02/09/redis主从切换(第十三部分)/index.html">
 <meta property="og:site_name" content="我的第一个博客">
-<meta property="og:description" content="累吗？？累就对啦，，舒服是留给死人的。">
+<meta property="og:description" content="redis主从复制可将主节点数据同步给从节点，一旦主节点宕机，某一从节点晋升为主节点，并且还需要把只读配置修改为可写，其余从节点重新指向新的主节点。那么该如何操作呢？？不着急！很简单！！哦哦哦！！ 人工干预我的master是6379；slave是6380和6381；当6379宕机后，6380为主节点，6381为从节点。在6380客户端进行操作:slave no one,将6380设置为主节点，co">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/image/redis3.png">
+<meta property="og:updated_time" content="2018-02-09T08:27:34.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一个博客">
-<meta name="twitter:description" content="累吗？？累就对啦，，舒服是留给死人的。">
+<meta name="twitter:title" content="redis主从切换(第十三部分)">
+<meta name="twitter:description" content="redis主从复制可将主节点数据同步给从节点，一旦主节点宕机，某一从节点晋升为主节点，并且还需要把只读配置修改为可写，其余从节点重新指向新的主节点。那么该如何操作呢？？不着急！很简单！！哦哦哦！！ 人工干预我的master是6379；slave是6380和6381；当6379宕机后，6380为主节点，6381为从节点。在6380客户端进行操作:slave no one,将6380设置为主节点，co">
+<meta name="twitter:image" content="http://yoursite.com/image/redis3.png">
 
 
 
@@ -124,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/教程-设计模式教程-设计模式-策略模式/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/09/redis主从切换(第十三部分)/"/>
 
 
 
 
 
-  <title>标签: 教程| 设计模式教程 | 设计模式--策略模式 | 我的第一个博客</title>
+  <title>redis主从切换(第十三部分) | 我的第一个博客</title>
   
 
 
@@ -159,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -307,54 +311,305 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>教程| 设计模式教程 | 设计模式--策略模式<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/redis主从切换(第十三部分)/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="夏茂盛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的第一个博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/12/15/设计模式-策略模式/" itemprop="url">
-              
-                <span itemprop="name">设计模式--策略模式</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">redis主从切换(第十三部分)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-15T14:28:54+08:00"
-              content="2017-12-15" >
-          12-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T14:52:09+08:00">
+                2018-02-09
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/09/redis主从切换(第十三部分)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/02/09/redis主从切换(第十三部分)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/02/09/redis主从切换(第十三部分)/" class="leancloud_visitors" data-flag-title="redis主从切换(第十三部分)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>redis主从复制可将主节点数据同步给从节点，一旦主节点宕机，某一从节点晋升为主节点，并且还需要把只读配置修改为可写，其余从节点重新指向新的主节点。那么该如何操作呢？？不着急！很简单！！哦哦哦！！</p>
+<h5 id="人工干预"><a href="#人工干预" class="headerlink" title="人工干预"></a>人工干预</h5><p>我的master是6379；slave是6380和6381；当6379宕机后，6380为主节点，6381为从节点。<br>在6380客户端进行操作:<strong>slave no one</strong>,将6380设置为主节点，<strong>config set slave-read-only no</strong>将6380设置为可写。<br>在6381客户端进行操作：<strong>slaveof localhost 6380</strong>将主节点设置为6380。<br>经过上面3步操作即可完成主从切换，是不是很简单呢？<br>思考一下，redis主机宕机属于随机，不确定，能不能自动监控进行主从切换呢？redis给出来解决方案，那就是<strong>redis sentinel</strong>。</p>
+<h5 id="redis-sentinel"><a href="#redis-sentinel" class="headerlink" title="redis sentinel"></a>redis sentinel</h5><p>redis sentinel是一个分布式架构，包含若干个sentinel节点和redis数据节点，每个sentinel节点会对数据节点和其余的sentinel节点进行监控，当发现节点不可用时，会对相应的节点进行下线标识。<br>如果被标识的节点为master，它会和其余的sentinel节点进行协商，当大部分的sentinel节点都认为master不可用时，他们按照slave优先级(可配置 slave-priority,默认为100)，选出一个sentinel节点来完成主从切换操作，同时将这个变化通知给redis应用方。<br><img src="/image/redis3.png" alt="redis主从切换"><br>如果被标识的节点为slave，直接通知master去除该slave。<br><strong>疑问</strong>: sentinel与master通信,如果某次因为master IO操作频繁,导致超时,此时,认为master失效,很武断。<br>解决: sentnel允许多个实例看守1个master, 当N台(N可设置)sentinel都认为master失效,才正式失效。<br><strong>sentinel选项配置(sentinel.conf)</strong>:<br>port 26379 # 端口<br>sentinel monitor mymaster 127.0.0.1 6379 2 #mymaster是master的别名，127.0.0.1 6379是当前sentinel节点监控的master，2代表判断master宕机至少需要2个sentinel节点同意。<br>sentinel down-after-milliseconds mymaster 30000  #多少毫秒后连接不到master认为宕机。<br>sentinel parallel-syncs mymaster 1  #一次性修改几个slave指向新的master，每次向新的master发起复制操作的slave个数。<br>我的部署:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">role</th>
+<th style="text-align:center">IP</th>
+<th style="text-align:center">port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">master</td>
+<td style="text-align:center">127.0.0.1</td>
+<td style="text-align:center">6379</td>
+</tr>
+<tr>
+<td style="text-align:center">slave</td>
+<td style="text-align:center">127.0.0.1</td>
+<td style="text-align:center">6380</td>
+</tr>
+<tr>
+<td style="text-align:center">slave</td>
+<td style="text-align:center">127.0.0.1</td>
+<td style="text-align:center">6381</td>
+</tr>
+<tr>
+<td style="text-align:center">sentinel1</td>
+<td style="text-align:center">127.0.0.1</td>
+<td style="text-align:center">26379</td>
+</tr>
+<tr>
+<td style="text-align:center">sentinel2</td>
+<td style="text-align:center">127.0.0.1</td>
+<td style="text-align:center">26380</td>
+</tr>
+<tr>
+<td style="text-align:center">sentinel3</td>
+<td style="text-align:center">127.0.0.1</td>
+<td style="text-align:center">26381</td>
+</tr>
+</tbody>
+</table>
+<p><strong>sentinel启动</strong>:<br>两种方法：</p>
+<ol>
+<li>redis-sentinel sentinel.conf</li>
+<li>redis-server sentinel.conf –sentinel</li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创造！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao-mid.png" alt="夏茂盛 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao-mid.png" alt="夏茂盛 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程-redis教程-redis主从切换/" rel="tag"># 教程| redis教程 | redis主从切换</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/09/redis运维命令(第十二部分)/" rel="next" title="redis运维命令(第十二部分)">
+                <i class="fa fa-chevron-left"></i> redis运维命令(第十二部分)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -362,6 +617,18 @@
 
 
           
+
+  
+    
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -382,8 +649,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -484,6 +760,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#人工干预"><span class="nav-number">1.</span> <span class="nav-text">人工干预</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#redis-sentinel"><span class="nav-number">2.</span> <span class="nav-text">redis sentinel</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -631,6 +923,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -677,6 +973,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '',
+            repo: '',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '0fc3fd47bc7cbc996b7cd90962fdff08fe87df1d',
+            
+                client_id: '63277d457afc6923ff8f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
@@ -1127,26 +1447,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
