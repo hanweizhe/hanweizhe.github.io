@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[redis中key的设计技巧(第十四部分)]]></title>
+    <url>%2F2018%2F02%2F28%2Fredis%E4%B8%ADkey%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7(%E7%AC%AC%E5%8D%81%E5%9B%9B%E9%83%A8%E5%88%86)%2F</url>
+    <content type="text"><![CDATA[Redis key 设计技巧关系型数据库转化为分布式数据库： 把表名转换为key前缀 如tag: 第2段放置用于区分key的字段–对应mysql中的主键的列名,如userid 第3段放置主键值,如2,3,4…., a , b ,c 第4段,写要存储的列名 用户表 user转换为key-value存储: userid username passworde email 9 Lisi 1111111 lisi@163.com 设计：set user:userid:9:username lisiset user:userid:9:password 111111set user:userid:9:email lisi@163.com查询所有存储的字段：1keys user:userid:9* 注意:在分布式数据库中，我们是按主键进行存储的。除主键外,还有可能其他列也需要查询,如上表中, username 也是极频繁查询的,往往这种列也是加了索引的.那么该如何实现呢？？keys user:userid:*:username:lisi 查询所有username为lisi的userid，如果数据太多，这个方法可能导致效率低下，有没有更高的方法呢？？转换到k-v数据中,则也要相应的生成一条按照该列为主的key-value冗余信息维护set user:username:lisi:userid 9那，其他列也需要创建key-value吗?不需要!这样,我们可以根据user:username:lisi:userid ,查出userid=9,再查其他字段信息user:username:9:password/email …完成了根据用户名来查询用户信息。]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>教程| redis教程 | redis中key的设计技巧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[redis主从切换(第十三部分)]]></title>
     <url>%2F2018%2F02%2F09%2Fredis%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2(%E7%AC%AC%E5%8D%81%E4%B8%89%E9%83%A8%E5%88%86)%2F</url>
     <content type="text"><![CDATA[redis主从复制可将主节点数据同步给从节点，一旦主节点宕机，某一从节点晋升为主节点，并且还需要把只读配置修改为可写，其余从节点重新指向新的主节点。那么该如何操作呢？？不着急！很简单！！哦哦哦！！ 人工干预我的master是6379；slave是6380和6381；当6379宕机后，6380为主节点，6381为从节点。在6380客户端进行操作:slave no one,将6380设置为主节点，config set slave-read-only no将6380设置为可写。在6381客户端进行操作：slaveof localhost 6380将主节点设置为6380。经过上面3步操作即可完成主从切换，是不是很简单呢？思考一下，redis主机宕机属于随机，不确定，能不能自动监控进行主从切换呢？redis给出来解决方案，那就是redis sentinel。 redis sentinelredis sentinel是一个分布式架构，包含若干个sentinel节点和redis数据节点，每个sentinel节点会对数据节点和其余的sentinel节点进行监控，当发现节点不可用时，会对相应的节点进行下线标识。如果被标识的节点为master，它会和其余的sentinel节点进行协商，当大部分的sentinel节点都认为master不可用时，他们按照slave优先级(可配置 slave-priority,默认为100)，选出一个sentinel节点来完成主从切换操作，同时将这个变化通知给redis应用方。如果被标识的节点为slave，直接通知master去除该slave。疑问: sentinel与master通信,如果某次因为master IO操作频繁,导致超时,此时,认为master失效,很武断。解决: sentnel允许多个实例看守1个master, 当N台(N可设置)sentinel都认为master失效,才正式失效。sentinel选项配置(sentinel.conf):port 26379 # 端口sentinel monitor mymaster 127.0.0.1 6379 2 #mymaster是master的别名，127.0.0.1 6379是当前sentinel节点监控的master，2代表判断master宕机至少需要2个sentinel节点同意。sentinel down-after-milliseconds mymaster 30000 #多少毫秒后连接不到master认为宕机。sentinel can-failover mymaster yes #是否允许sentinel修改此slave为master. 如为no,则只能监控,无权修改.一般只允许一个sentinel进行修改。sentinel parallel-syncs mymaster 1 #一次性修改几个slave指向新的master，每次向新的master发起复制操作的slave个数。我的部署: role IP port master 127.0.0.1 6379 slave 127.0.0.1 6380 slave 127.0.0.1 6381 sentinel1 127.0.0.1 26379 sentinel2 127.0.0.1 26380 sentinel3 127.0.0.1 26381 sentinel启动:两种方法： redis-sentinel sentinel.conf redis-server sentinel.conf –sentinel]]></content>

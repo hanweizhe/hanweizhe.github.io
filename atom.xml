@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-28T02:13:16.863Z</updated>
+  <updated>2018-02-28T05:20:53.548Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis中key的设计技巧(第十四部分)</title>
+    <link href="http://yoursite.com/2018/02/28/redis%E4%B8%ADkey%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7(%E7%AC%AC%E5%8D%81%E5%9B%9B%E9%83%A8%E5%88%86)/"/>
+    <id>http://yoursite.com/2018/02/28/redis中key的设计技巧(第十四部分)/</id>
+    <published>2018-02-28T03:45:37.000Z</published>
+    <updated>2018-02-28T05:20:53.548Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Redis-key-设计技巧"><a href="#Redis-key-设计技巧" class="headerlink" title="Redis key 设计技巧"></a>Redis key 设计技巧</h4><p>关系型数据库转化为分布式数据库：</p><ol><li>把表名转换为key前缀 如tag:</li><li>第2段放置用于区分key的字段–对应mysql中的主键的列名,如userid</li><li>第3段放置主键值,如2,3,4…., a , b ,c</li><li>第4段,写要存储的列名</li></ol><p>用户表 user转换为key-value存储:</p><table><thead><tr><th style="text-align:center">userid</th><th style="text-align:center">username</th><th style="text-align:center">passworde</th><th style="text-align:center">email</th></tr></thead><tbody><tr><td style="text-align:center">9</td><td style="text-align:center">Lisi</td><td style="text-align:center">1111111</td><td style="text-align:center">lisi@163.com</td></tr></tbody></table><p>设计：<br>set  user:userid:9:username  lisi<br>set  user:userid:9:password  111111<br>set  user:userid:9:email  lisi@163.com<br>查询所有存储的字段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keys user:userid:9*</span><br></pre></td></tr></table></figure></p><p><strong>注意</strong>:<br>在分布式数据库中，我们是按主键进行存储的。除主键外,还有可能其他列也需要查询,如上表中, username 也是极频繁查询的,往往这种列也是加了索引的.那么该如何实现呢？？<br>keys user:userid:*:username:lisi 查询所有username为lisi的userid，如果数据太多，这个方法可能导致效率低下，有没有更高的方法呢？？<br>转换到k-v数据中,则也要相应的生成一条按照该列为主的key-value<br>冗余信息维护set user:username:lisi:userid  9<br>那，其他列也需要创建key-value吗?不需要!<br>这样,我们可以根据user:username:lisi:userid ,查出userid=9,<br>再查其他字段信息user:username:9:password/email …<br>完成了根据用户名来查询用户信息。  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;Redis-key-设计技巧&quot;&gt;&lt;a href=&quot;#Redis-key-设计技巧&quot; class=&quot;headerlink&quot; title=&quot;Redis key 设计技巧&quot;&gt;&lt;/a&gt;Redis key 设计技巧&lt;/h4&gt;&lt;p&gt;关系型数据库转化为分布式数据库：&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+      <category term="redis" scheme="http://yoursite.com/categories/redis/"/>
+    
+    
+      <category term="教程| redis教程 | redis中key的设计技巧" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B-redis%E6%95%99%E7%A8%8B-redis%E4%B8%ADkey%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>redis主从切换(第十三部分)</title>
@@ -502,27 +528,6 @@
     
     
       <category term="教程| Hexo教程 | Hexo快速搭建" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B-Hexo%E6%95%99%E7%A8%8B-Hexo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/11/10/hello-world/"/>
-    <id>http://yoursite.com/2017/11/10/hello-world/</id>
-    <published>2017-11-10T10:34:11.806Z</published>
-    <updated>2017-11-10T07:46:41.732Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
     
   </entry>
   
