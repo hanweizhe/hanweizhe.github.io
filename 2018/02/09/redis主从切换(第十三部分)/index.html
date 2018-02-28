@@ -94,7 +94,7 @@
 <meta property="og:description" content="redis主从复制可将主节点数据同步给从节点，一旦主节点宕机，某一从节点晋升为主节点，并且还需要把只读配置修改为可写，其余从节点重新指向新的主节点。那么该如何操作呢？？不着急！很简单！！哦哦哦！！ 人工干预我的master是6379；slave是6380和6381；当6379宕机后，6380为主节点，6381为从节点。在6380客户端进行操作:slave no one,将6380设置为主节点，co">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/image/redis3.png">
-<meta property="og:updated_time" content="2018-02-09T08:27:34.960Z">
+<meta property="og:updated_time" content="2018-02-28T02:13:16.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis主从切换(第十三部分)">
 <meta name="twitter:description" content="redis主从复制可将主节点数据同步给从节点，一旦主节点宕机，某一从节点晋升为主节点，并且还需要把只读配置修改为可写，其余从节点重新指向新的主节点。那么该如何操作呢？？不着急！很简单！！哦哦哦！！ 人工干预我的master是6379；slave是6380和6381；当6379宕机后，6380为主节点，6381为从节点。在6380客户端进行操作:slave no one,将6380设置为主节点，co">
@@ -437,7 +437,7 @@
       
         <p>redis主从复制可将主节点数据同步给从节点，一旦主节点宕机，某一从节点晋升为主节点，并且还需要把只读配置修改为可写，其余从节点重新指向新的主节点。那么该如何操作呢？？不着急！很简单！！哦哦哦！！</p>
 <h5 id="人工干预"><a href="#人工干预" class="headerlink" title="人工干预"></a>人工干预</h5><p>我的master是6379；slave是6380和6381；当6379宕机后，6380为主节点，6381为从节点。<br>在6380客户端进行操作:<strong>slave no one</strong>,将6380设置为主节点，<strong>config set slave-read-only no</strong>将6380设置为可写。<br>在6381客户端进行操作：<strong>slaveof localhost 6380</strong>将主节点设置为6380。<br>经过上面3步操作即可完成主从切换，是不是很简单呢？<br>思考一下，redis主机宕机属于随机，不确定，能不能自动监控进行主从切换呢？redis给出来解决方案，那就是<strong>redis sentinel</strong>。</p>
-<h5 id="redis-sentinel"><a href="#redis-sentinel" class="headerlink" title="redis sentinel"></a>redis sentinel</h5><p>redis sentinel是一个分布式架构，包含若干个sentinel节点和redis数据节点，每个sentinel节点会对数据节点和其余的sentinel节点进行监控，当发现节点不可用时，会对相应的节点进行下线标识。<br>如果被标识的节点为master，它会和其余的sentinel节点进行协商，当大部分的sentinel节点都认为master不可用时，他们按照slave优先级(可配置 slave-priority,默认为100)，选出一个sentinel节点来完成主从切换操作，同时将这个变化通知给redis应用方。<br><img src="/image/redis3.png" alt="redis主从切换"><br>如果被标识的节点为slave，直接通知master去除该slave。<br><strong>疑问</strong>: sentinel与master通信,如果某次因为master IO操作频繁,导致超时,此时,认为master失效,很武断。<br>解决: sentnel允许多个实例看守1个master, 当N台(N可设置)sentinel都认为master失效,才正式失效。<br><strong>sentinel选项配置(sentinel.conf)</strong>:<br>port 26379 # 端口<br>sentinel monitor mymaster 127.0.0.1 6379 2 #mymaster是master的别名，127.0.0.1 6379是当前sentinel节点监控的master，2代表判断master宕机至少需要2个sentinel节点同意。<br>sentinel down-after-milliseconds mymaster 30000  #多少毫秒后连接不到master认为宕机。<br>sentinel parallel-syncs mymaster 1  #一次性修改几个slave指向新的master，每次向新的master发起复制操作的slave个数。<br>我的部署:</p>
+<h5 id="redis-sentinel"><a href="#redis-sentinel" class="headerlink" title="redis sentinel"></a>redis sentinel</h5><p>redis sentinel是一个分布式架构，包含若干个sentinel节点和redis数据节点，每个sentinel节点会对数据节点和其余的sentinel节点进行监控，当发现节点不可用时，会对相应的节点进行下线标识。<br>如果被标识的节点为master，它会和其余的sentinel节点进行协商，当大部分的sentinel节点都认为master不可用时，他们按照slave优先级(可配置 slave-priority,默认为100)，选出一个sentinel节点来完成主从切换操作，同时将这个变化通知给redis应用方。<br><img src="/image/redis3.png" alt="redis主从切换"><br>如果被标识的节点为slave，直接通知master去除该slave。<br><strong>疑问</strong>: sentinel与master通信,如果某次因为master IO操作频繁,导致超时,此时,认为master失效,很武断。<br>解决: sentnel允许多个实例看守1个master, 当N台(N可设置)sentinel都认为master失效,才正式失效。<br><strong>sentinel选项配置(sentinel.conf)</strong>:<br>port 26379 # 端口<br>sentinel monitor mymaster 127.0.0.1 6379 2 #mymaster是master的别名，127.0.0.1 6379是当前sentinel节点监控的master，2代表判断master宕机至少需要2个sentinel节点同意。<br>sentinel down-after-milliseconds mymaster 30000  #多少毫秒后连接不到master认为宕机。<br>sentinel can-failover mymaster yes  #是否允许sentinel修改此slave为master. 如为no,则只能监控,无权修改.一般只允许一个sentinel进行修改。<br>sentinel parallel-syncs mymaster 1  #一次性修改几个slave指向新的master，每次向新的master发起复制操作的slave个数。<br>我的部署:</p>
 <table>
 <thead>
 <tr>
